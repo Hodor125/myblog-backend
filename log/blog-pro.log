@@ -1,0 +1,12 @@
+2021-01-04 15:57:49.207  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : Starting BlogApplicationTests on LAPTOP-V8RA8F4K with PID 10984 (started by hodor in E:\code\git\myblog-backend)
+2021-01-04 15:57:49.208  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : The following profiles are active: pro
+2021-01-04 15:57:51.040  WARN 10984 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-04 15:57:53.634  WARN 10984 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-04 15:57:53.874  WARN 10984 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-01-04 15:57:54.365  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : Started BlogApplicationTests in 5.842 seconds (JVM running for 6.943)
+2021-01-04 15:57:58.831  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 18328 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-04 15:57:58.849  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-01-04 15:58:02.122  WARN 18328 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-04 15:58:03.404  WARN 18328 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-04 15:58:03.503  WARN 18328 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-01-04 15:58:03.771  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 5.902 seconds (JVM running for 6.756)
