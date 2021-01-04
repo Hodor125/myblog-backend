@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3305/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&AutoReconnect=true
+    username: root
+    password: ahulml005
+  jpa:
+    hibernate:
+      #修改实体类会更新表结构
+      ddl-auto: none
+    show-sql: true
+
+#日志级别
+logging:
+  level:
+    #自定义日志级别
+    root: warn
+    com.hodor: info
+    #指定日志文件路径
+  file: log/blog-pro.log
+
+server:
+  port: 80
