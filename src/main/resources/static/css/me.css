@@ -1,0 +1,177 @@
+/*背景图片*/
+body {
+    background: url("../images/bg.png");
+}
+/*阴影*/
+.m-shadow-small{
+    /*适配谷歌等浏览器*/
+    -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    /*左右阴影4px，8px是阴影像素的范围*/
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+/*控制元素内部的padding*/
+.m-padding-mini{
+    padding: 0.2em !important;
+}
+.m-padding-tiny{
+    padding: 0.3em !important;
+}
+.m-padding{
+    padding: 1em !important;
+}
+.m-padded-tb-mini{
+    /*一个em是十四个像素 !important提高级别*/
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-tiny{
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+.m-padded-tb-small{
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-tb-large{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-tb-big{
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge{
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb-massive{
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+/*文章左右间隔*/
+.m-padded-lr-responsive-huge{
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+.m-padded-lr-responsive{
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+/*指定位置*/
+.m-right-top{
+    position:absolute;
+    top: 0;
+    right: 0;
+}
+/*指定绝对位置*/
+.m-fix{
+    position: fixed !important;
+    z-index: 10;
+}
+.m-right-bottom{
+    bottom: 0 !important;
+    right: 0 !important;
+
+    /*相同效果?*/
+    /*position:absolute;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+}
+/*外部间隔margin*/
+.m-margin-tb-tiny{
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+
+.m-margin-top{
+    margin-top: 1em !important;
+}
+
+.m-margin-top-larger{
+    margin-top: 2em !important;
+}
+.m-margin-bottom-small{
+    margin-bottom: 0.5em !important;
+}
+
+.m-margin-lr-tiny{
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+/*三合一*/
+.m-text{
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.8;
+}
+/*设置字体更细*/
+.m-text-thin{
+    font-weight: 300 !important;
+}
+/*设置字间距*/
+.m-text-spaced{
+    letter-spacing: 1px !important;
+}
+/*设置行间距*/
+.m-text-lined{
+    line-height: 1.8;
+}
+/*设置透明度*/
+.m-opacity-mini{
+    opacity: 0.8 !important;
+}
+.m-opacity-tiny{
+    opacity: 0.6 !important;
+}
+
+/*显示的属性*/
+.m-inline-block{
+    display: inline-block !important;
+}
+
+/*改变container*/
+.m-container{
+    max-width:72em !important;
+    margin:auto;
+}
+
+.m-container-small{
+    max-width:60em !important;
+    margin:auto;
+}
+
+/*颜色改成黑色*/
+.m-black{
+    color: #333 !important;
+}
+
+/*菜单按钮宽屏的情况下隐藏*/
+.m-mobile-show{
+    display: none !important;
+}
+/*手机端的情况*/
+@media screen and (max-width: 1000px) {
+    .m-mobile-hide{
+        /*自定义样式都需要加!important吗*/
+        display :none !important;
+    }
+    .m-mobile-show{
+        display: block !important;
+    }
+    /*手机端的文章左右间隔 外面还有一个大分辨率的情况*/
+    .m-padded-lr-responsive-huge{
+        padding-left: 0em !important;
+        padding-right: 0em !important;
+    }
+    .m-padded-lr-responsive{
+        padding-left: 0em !important;
+        padding-right: 0em !important;
+    }
+    .m-mobile-wide{
+        width: 100% !important;
+    }
+}

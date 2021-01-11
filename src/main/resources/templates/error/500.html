@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="">
+<head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
-    <title>500</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <title>首页</title>
 </head>
 <body>
+<nav th:replace="_fragments :: nav(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <!--调整位置-->
+    <div class="ui container">
+        <!--secondary改变样式 stackable可堆叠适应移动端-->
+        <div class="ui inverted secondary stackable menu">
+            <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <!--搜索框-->
+            <div class="m-item right item m-mobile-hide">
+                <!--icon添加图标-->
+                <div class="ui icon input inverted transparent">
+                    <input type="text" placeholder="Search...">
+                    <!--link鼠标放上去有手的形状-->
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+        <!--自定义绝对布局 非手机端这个菜单按钮不显示 menu toggle 方便通过class获取这个元素-->
+        <a href="#" class="ui menu toggle icon black button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </div>
+</nav>
 
-<h1>500页面</h1>
+<br>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message">
+        <div class="ui container">
+            <h2>500页面</h2>
+            <p>服务器内部错误</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
 
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <!--所有格子的内容居中-->
+    <div class="ui center aligned container">
+        <!--格子 grid是分为十六份 bootstrap是分为十二份-->
+        <!--divided分割线-->
+        <div class="ui inverted divided stackable grid">
+            <!--配置占用多少格子-->
+            <div class="three wide column">
+                <!--套一个保持格式-->
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事(UserStory)</a>
+                    <a href="#" class="item">用户故事(UserStory)</a>
+                    <a href="#" class="item">用户故事(UserStory)</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">QQ:215338572</a>
+                    <a href="#" class="item">Email:215338572@qq.com</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享有关编程、动漫、游戏、思考的相关内容，希望可以给到这儿的人有所帮助</p>
+            </div>
+        </div>
+        <!--分割线-->
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">CopyRight 2020-2021 Hodor Designed by LML</p>
+    </div>
+</footer>
 </body>
 </html>

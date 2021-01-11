@@ -1,12 +1,423 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <title>首页</title>
 </head>
 <body>
+  <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角-->
+  <!--快捷键div.ui.menu-->
+  <nav th:replace="_fragments :: nav(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+      <!--调整位置-->
+      <div class="ui container">
+          <!--secondary改变样式 stackable可堆叠适应移动端-->
+          <div class="ui inverted secondary stackable menu">
+              <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
+              <h2 class="ui teal header item">Blog</h2>
+              <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+              <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+              <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+              <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+              <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+              <!--搜索框-->
+              <div class="m-item right item m-mobile-hide">
+                  <!--icon添加图标-->
+                  <div class="ui icon input inverted transparent">
+                      <input type="text" placeholder="Search...">
+                      <!--link鼠标放上去有手的形状-->
+                      <i class="search link icon"></i>
+                  </div>
+              </div>
+          </div>
+          <!--自定义绝对布局 非手机端这个菜单按钮不显示 menu toggle 方便通过class获取这个元素-->
+          <a href="#" class="ui menu toggle icon black button m-right-top m-mobile-show">
+              <i class="sidebar icon"></i>
+          </a>
+      </div>
+  </nav>
 
-<h1>首页</h1>
+  <!--中间内容，container没法改大小，只能外部改-->
+  <div class="m-padded-tb-big m-container">
+      <!--container有自适应的功能，最好用它来包裹元素，限制了上下-->
+      <div class="ui container">
+          <!--header-->
+          <!--完成左右布局-->
+          <div class="ui stackable grid">
+              <!--左边的博客列表的内容-->
+              <div class="eleven wide column">
+                  <!--top attached两个segment连在一起-->
+                  <div class="ui top attached segment">
+                      <!--直接取两行，middle aligned垂直居中-->
+                      <div class="ui middle aligned two column grid">
+                          <div class="column">
+                              <h3 class="ui teal header">博客</h3>
+                          </div>
+                          <!--靠右，自定义不换行m-inline-block-->
+                          <div class="right aligned column">
+                              共<h2 class="ui orange header m-inline-block m-text-thin">14</h2>篇
+                          </div>
+                      </div>
+                  </div>
+                  <!--content-->
+                  <!--两个segment连在一起-->
+                  <div class="ui attached segment">
+                      <!--设置边距padded，vertical两个相邻会加一条直线-->
+                      <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive">
+                          <!--stackable mobile移动端显示在上面-->
+                          <div class="ui stackable mobile reversed grid">
+                              <div class="eleven wide column">
+                                  <h3 class="ui header">2077好玩吗</h3>
+                                  <p class="m-text">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
+                                  <!--使用布局来做-->
+                                  <div class="ui grid">
+                                      <!--左边的图标-->
+                                      <div class="eleven wide column">
+                                          <!--横向列表 mini整个缩小-->
+                                          <div class="ui mini horizontal link list">
+                                              <div class="item">
+                                                  <!--头像-->
+                                                  <img src="https://picsum.photos/id/1005/120/100" alt="" class="ui avatar image">
+                                                  <div class="content"><a href="#" class="header">Hodor</a></div>
+                                              </div>
+                                              <div class="item">
+                                                  <i class="calendar icon"></i>2017-10-01
+                                              </div>
+                                              <div class="item">
+                                                  <i class="eye icon"></i>123
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!--给多一点 right aligned靠右-->
+                                      <div class="right aligned five wide column">
+                                          <!--m-padding-mini控制大小？-->
+                                          <a href="#" class="ui teal basic label m-padding-tiny m-text-thin">认知升级</a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--设置链接打开新网页-->
+                              <div class="five wide column">
+                                  <a href="#" target="_blank">
+                                      <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive">
+                          <!--stackable mobile移动端显示在上面-->
+                          <div class="ui stackable mobile reversed grid">
+                              <div class="eleven wide column">
+                                  <h3 class="ui header">2077好玩吗</h3>
+                                  <p class="m-text">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
+                                  <!--使用布局来做-->
+                                  <div class="ui grid">
+                                      <!--左边的图标-->
+                                      <div class="eleven wide column">
+                                          <!--横向列表 mini整个缩小-->
+                                          <div class="ui mini horizontal link list">
+                                              <div class="item">
+                                                  <!--头像-->
+                                                  <img src="https://picsum.photos/id/1005/120/100" alt="" class="ui avatar image">
+                                                  <div class="content"><a href="#" class="header">Hodor</a></div>
+                                              </div>
+                                              <div class="item">
+                                                  <i class="calendar icon"></i>2017-10-01
+                                              </div>
+                                              <div class="item">
+                                                  <i class="eye icon"></i>123
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!--给多一点 right aligned靠右-->
+                                      <div class="right aligned five wide column">
+                                          <!--m-padding-mini控制大小？-->
+                                          <a href="#" class="ui teal basic label m-padding-tiny m-text-thin">认知升级</a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--设置链接打开新网页-->
+                              <div class="five wide column">
+                                  <a href="#" target="_blank">
+                                      <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive">
+                          <!--stackable mobile移动端显示在上面-->
+                          <div class="ui stackable mobile reversed grid">
+                              <div class="eleven wide column">
+                                  <h3 class="ui header">2077好玩吗</h3>
+                                  <p class="m-text">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
+                                  <!--使用布局来做-->
+                                  <div class="ui grid">
+                                      <!--左边的图标-->
+                                      <div class="eleven wide column">
+                                          <!--横向列表 mini整个缩小-->
+                                          <div class="ui mini horizontal link list">
+                                              <div class="item">
+                                                  <!--头像-->
+                                                  <img src="https://picsum.photos/id/1005/120/100" alt="" class="ui avatar image">
+                                                  <div class="content"><a href="#" class="header">Hodor</a></div>
+                                              </div>
+                                              <div class="item">
+                                                  <i class="calendar icon"></i>2017-10-01
+                                              </div>
+                                              <div class="item">
+                                                  <i class="eye icon"></i>123
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!--给多一点 right aligned靠右-->
+                                      <div class="right aligned five wide column">
+                                          <!--m-padding-mini控制大小？-->
+                                          <a href="#" class="ui teal basic label m-padding-tiny m-text-thin">认知升级</a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--设置链接打开新网页-->
+                              <div class="five wide column">
+                                  <a href="#" target="_blank">
+                                      <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive">
+                          <!--stackable mobile移动端显示在上面-->
+                          <div class="ui stackable mobile reversed grid">
+                              <div class="eleven wide column">
+                                  <h3 class="ui header">2077好玩吗</h3>
+                                  <p class="m-text">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
+                                  <!--使用布局来做-->
+                                  <div class="ui grid">
+                                      <!--左边的图标-->
+                                      <div class="eleven wide column">
+                                          <!--横向列表 mini整个缩小-->
+                                          <div class="ui mini horizontal link list">
+                                              <div class="item">
+                                                  <!--头像-->
+                                                  <img src="https://picsum.photos/id/1005/120/100" alt="" class="ui avatar image">
+                                                  <div class="content"><a href="#" class="header">Hodor</a></div>
+                                              </div>
+                                              <div class="item">
+                                                  <i class="calendar icon"></i>2017-10-01
+                                              </div>
+                                              <div class="item">
+                                                  <i class="eye icon"></i>123
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!--给多一点 right aligned靠右-->
+                                      <div class="right aligned five wide column">
+                                          <!--m-padding-mini控制大小？-->
+                                          <a href="#" class="ui teal basic label m-padding-tiny m-text-thin">认知升级</a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--设置链接打开新网页-->
+                              <div class="five wide column">
+                                  <a href="#" target="_blank">
+                                      <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
+                  <!--bottom-->
+                  <div class="ui bottom attached segment">
+                      <div class="ui middle aligned two column grid">
+                          <div class="column">
+                              <a href="#" class="ui teal mini basic button">上一页</a>
+                          </div>
+                          <!--靠右，自定义不换行m-inline-block-->
+                          <div class="right aligned column">
+                              <a href="#" class="ui teal mini basic button">下一页</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!--右边的卡片的内容-->
+              <div class="five wide column">
+                  <!--分类-->
+                  <div class="ui segments">
+                      <!--secondary在segment上面加上灰色-->
+                      <div class="ui secondary segment">
+                          <!--使用两列的grid-->
+                          <div class="ui two column grid">
+                              <div class="column">
+                                  <i class="idea icon"></i>分类
+                              </div>
+                              <div class="right aligned column">
+                                  <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="ui teal segment">
+                          <!--fluid填充-->
+                          <div class="ui vertical fluid menu">
+                              <!--item的特性，在文字后加标签或者图标会放在最右边-->
+                              <a href="#" class="item">
+                                  学习日志
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                              <a href="#" class="item">
+                                  方法
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                              <a href="#" class="item">
+                                  思考与感悟
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                              <a href="#" class="item">
+                                  SpringBoot
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                              <a href="#" class="item">
+                                  读书笔记
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                              <a href="#" class="item">
+                                  电影推荐
+                                  <div class="ui teal basic left pointing label">13</div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--标签 使用segments多个segment可以连在一起-->
+                  <div class="ui segments m-margin-top-larger">
+                      <div class="ui secondary segment">
+                          <!--使用两列的grid-->
+                          <div class="ui two column grid">
+                              <div class="column">
+                                  <i class="tags icon"></i>标签
+                              </div>
+                              <div class="right aligned column">
+                                  <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ui teal segment">
+                          <!--detail在a内加其他文字-->
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                          <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                              方法论 <div class="detail">23</div>
+                          </a>
+                      </div>
+                  </div>
+
+                  <!--最新推荐-->
+                  <div class="ui segments m-margin-top-larger">
+                      <div class="ui secondary segment">
+                          <i class="bookmark icon"></i>最新推荐
+                      </div>
+                      <div class="ui segment">
+                          <a href="#" target="_blank" class="m-black m-text-thin">用户故事(User Story)</a>
+                      </div>
+                      <div class="ui segment">
+                          <a href="#" target="_blank" class="m-black m-text-thin">用户故事(User Story)</a>
+                      </div>
+                      <div class="ui segment">
+                          <a href="#" target="_blank" class="m-black m-text-thin">用户故事(User Story)</a>
+                      </div>
+                  </div>
+
+                  <!--二维码-->
+                  <h4 class="ui horizontal divider header m-margin-top-larger">扫码关注我</h4>
+                  <!--centered居中-->
+                  <div class="ui centered card" style="width: 10em">
+                      <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image">
+                  </div>
+              </div>
+          </div>
+
+          <!--列表-->
+      </div>
+  </div>
+
+  <!--底部 segment片段 vertical垂直-->
+  <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+      <!--所有格子的内容居中-->
+      <div class="ui center aligned container">
+          <!--格子 grid是分为十六份 bootstrap是分为十二份-->
+          <!--divided分割线-->
+          <div class="ui inverted divided stackable grid">
+              <!--配置占用多少格子-->
+              <div class="three wide column">
+                  <!--套一个保持格式-->
+                  <div class="ui inverted link list">
+                      <div class="item">
+                          <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+                      </div>
+                  </div>
+              </div>
+              <div class="three wide column">
+                  <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                  <div class="ui inverted link list">
+                      <a href="#" class="item">用户故事(UserStory)</a>
+                      <a href="#" class="item">用户故事(UserStory)</a>
+                      <a href="#" class="item">用户故事(UserStory)</a>
+                  </div>
+              </div>
+              <div class="three wide column">
+                  <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                  <div class="ui inverted link list">
+                      <a href="#" class="item">QQ:215338572</a>
+                      <a href="#" class="item">Email:215338572@qq.com</a>
+                  </div>
+              </div>
+              <div class="seven wide column">
+                  <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                  <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享有关编程、动漫、游戏、思考的相关内容，希望可以给到这儿的人有所帮助</p>
+              </div>
+          </div>
+          <!--分割线-->
+          <div class="ui inverted section divider"></div>
+          <p class="m-text-thin m-text-spaced m-opacity-tiny">CopyRight 2020-2021 Hodor Designed by LML</p>
+      </div>
+  </footer>
+  <!--这个注释对html是注释的，对thymeleaf是非注释的-->
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    // 通过jquery在移动端显示和隐藏导航栏
+    $(".menu.toggle").click(function (){
+        $(".m-item").toggleClass("m-mobile-hide");
+    })
+</script>
 </body>
 </html>
