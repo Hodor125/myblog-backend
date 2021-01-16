@@ -3,6 +3,7 @@ package com.hodor.service.impl;
 import com.hodor.dao.UserRepository;
 import com.hodor.pojo.User;
 import com.hodor.service.UserService;
+import com.hodor.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User checkUser(String name, String passWord) {
-        User user = userRepository.findByUserNameAndPassWord(name, passWord);
+        User user = userRepository.findByUserNameAndPassWord(name, MD5Utils.code(passWord));
         return user;
     }
 }
