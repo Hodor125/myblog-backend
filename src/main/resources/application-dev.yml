@@ -6,7 +6,7 @@ spring:
     password: ahulml005
   jpa:
     hibernate:
-      #修改实体类会更新表结构
+      #值为update修改实体类会更新表结构
       ddl-auto: update
     show-sql: true
 

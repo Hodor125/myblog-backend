@@ -19,7 +19,7 @@ public class User {
     private Long id;
     private String nickName;
     private String userName;
-    private String password;
+    private String passWord;
     private String email;
     private String avatar;
     private String type;
@@ -58,12 +58,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public String getEmail() {
@@ -120,12 +120,13 @@ public class User {
                 "id=" + id +
                 ", nickName='" + nickName + '\'' +
                 ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
+                ", passWord='" + passWord + '\'' +
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type='" + type + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", updateTime='" + updateTime + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
                 '}';
     }
 }

@@ -31,4 +31,52 @@ public class indexController {
         System.out.println("------------blog----------------");
         return "blog";
     }
+
+    @GetMapping("/tags")
+    public String tags(){
+        System.out.println("------------tags----------------");
+        return "tags";
+    }
+
+    @GetMapping("/types")
+    public String types(){
+        System.out.println("------------types----------------");
+        return "types";
+    }
+
+    @GetMapping("/archives")
+    public String archives(){
+        System.out.println("------------archives----------------");
+        return "archives";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        System.out.println("------------about----------------");
+        return "about";
+    }
+
+    @GetMapping("/adminIndex")
+    public String adminIndex(){
+        System.out.println("------------adminIndex----------------");
+        return "admin/index";
+    }
+
+    @GetMapping("/adminBlogs")
+    public String adminBlogs(){
+        System.out.println("------------adminBlog----------------");
+        return "admin/blogs";
+    }
+
+    @GetMapping("/adminBlogsInput")
+    public String adminBlogsInput(){
+        System.out.println("------------adminBlogInput----------------");
+        return "admin/blogs-input";
+    }
+
+    @GetMapping("/adminLogin")
+    public String adminBlogsLogin(){
+        System.out.println("------------adminBlogInput----------------");
+        return "admin/login";
+    }
 }
