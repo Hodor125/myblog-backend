@@ -1,5 +1,7 @@
 package com.hodor.pojo;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "分类名称不能为空")
     private String name;
 
     @OneToMany(mappedBy = "type")    //被维护

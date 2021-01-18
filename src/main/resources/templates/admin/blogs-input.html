@@ -18,9 +18,9 @@
           <div class="ui inverted secondary stackable menu">
               <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
               <h2 class="ui teal header item">管理后台</h2>
-              <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-              <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-              <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+              <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+              <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+              <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
               <div class="right m-mobile-hide menu">
                   <div class="ui dropdown item">
                       <div class="text">

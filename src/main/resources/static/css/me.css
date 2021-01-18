@@ -143,6 +143,14 @@ body {
     max-width:60em !important;
     margin:auto;
 }
+.m-container-mini{
+    max-width:48em !important;
+    margin:auto;
+}
+.m-container-tiny{
+    max-width:36em !important;
+    margin:auto;
+}
 
 /*颜色改成黑色*/
 .m-black{

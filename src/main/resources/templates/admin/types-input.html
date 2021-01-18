@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
-    <title>博客管理</title>
+    <link rel="stylesheet" href="../../static/lib/editor-markdown/css/editormd.min.css" th:href="@{/lib/editor-markdown/css/editormd.min.css}">
+    <title>分类新增</title>
 </head>
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角 m-shadow-small导航栏的阴影效果-->
@@ -17,8 +18,8 @@
           <div class="ui inverted secondary stackable menu">
               <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
               <h2 class="ui teal header item">管理后台</h2>
-              <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-              <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+              <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+              <a href="#" th:href="@{/admin/types}" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
               <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
               <div class="right m-mobile-hide menu">
                   <div class="ui dropdown item">
@@ -44,8 +45,8 @@
   <div class="ui attached pointing menu">
       <div class="ui container">
           <div class="right menu">
-              <a href="#" class="item">发布</a>
-              <a href="#" class="active teal item">列表</a>
+              <a href="#" th:href="@{/admin/types/input}" class="active teal item">新增</a>
+              <a href="#" th:href="@{/admin/types}" class="item">列表</a>
           </div>
       </div>
   </div>
@@ -53,104 +54,35 @@
   <!--中间内容，container没法改大小，只能外部改-->
   <div class="m-padded-tb-big m-container-small">
       <div class="ui container">
-          <!--segment外层包裹大框-->
-          <form action="#" method="post" class="ui segment form">
-              <!--inline 长度变短-->
-               <div class="inline fields">
-                   <div class="field">
-                       <input type="text" name="title" placeholder="标题">
-                   </div>
-                   <div class="field m-margin-tb-tiny">
-                       <div class="ui selection dropdown">
-                           <input type="hidden" name="type">
-                           <i class="dropdown icon"></i>
-                           <div class="default text">分类</div>
-                           <div class="menu">
-                               <div class="item" data-value="1">错误日志</div>
-                               <div class="item" data-value="2">开发者手册</div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="field">
-                       <div class="ui checkbox">
-                           <input type="checkbox" name="recommend" id="recommend">
-                           <label for="recommend">推荐</label>
-                       </div>
-                   </div>
-                   <div class="field">
-                       <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
-                   </div>
-               </div>
-          </form>
-
-          <table class="ui table">
-              <thead>
-              <tr><th></th>
-              <th>标题</th>
-                  <th>类型</th>
-                  <th>推荐</th>
-                  <th>更新时间</th>
-                  <th>操作</th>
-              </tr></thead>
-              <tbody>
-              <tr>
-                  <td>1</td>
-                  <td>RabbitMQ</td>
-                  <td>中间件</td>
-                  <td>是</td>
-                  <td>2020-12-29 21：06</td>
-                  <td>
-                      <a href="#" class="ui mini basic teal button">编辑</a>
-                      <a href="#" class="ui mini basic red button">删除</a>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>RabbitMQ</td>
-                  <td>中间件</td>
-                  <td>是</td>
-                  <td>2020-12-29 21：06</td>
-                  <td>
-                      <a href="#" class="ui mini basic teal button">编辑</a>
-                      <a href="#" class="ui mini basic red button">删除</a>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>RabbitMQ</td>
-                  <td>中间件</td>
-                  <td>是</td>
-                  <td>2020-12-29 21：06</td>
-                  <td>
-                      <a href="#" class="ui mini basic teal button">编辑</a>
-                      <a href="#" class="ui mini basic red button">删除</a>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>RabbitMQ</td>
-                  <td>中间件</td>
-                  <td>是</td>
-                  <td>2020-12-29 21：06</td>
-                  <td>
-                      <a href="#" class="ui mini basic teal button">编辑</a>
-                      <a href="#" class="ui mini basic red button">删除</a>
-                  </td>
-              </tr>
-              </tbody>
-              <tfoot>
-              <tr><th colspan="6">
-                  <!--对item的调整加载menu上才有用-->
-                  <div class="ui mini pagination menu">
-                      <a class="item">上一页</a>
-                      <a class="item">下一页</a>
+          <form action="#" method="post" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}" th:object="${type}" class="ui form">
+              <input type="hidden" name="id" th:value="*{id}">
+              <div class="field">
+                  <!--内部必须定义label和input action将label和input连接-->
+                  <div class="ui labeled action input">
+                      <label class="ui compact teal basic label">分类</label>
+                      <!--fluid使得长度充满-->
+                      <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
                   </div>
-                  <a href="#" class="ui mini right floated basic teal button">新增</a>
-              </th>
-              </tr></tfoot>
-          </table>
+              </div>
+
+              <div class="ui error message"></div>
+              <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                  <i class="close icon"></i>
+                  <div class="header">验证失败</div>
+                  <p th:errors="*{name}">提交信息不符合规则</p>
+              </div>
+
+              <div class="ui right aligned container">
+                  <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+                  <button class="ui teal submit button">提交</button>
+              </div>
+          </form>
       </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <!--底部 segment片段 vertical垂直-->
   <footer class="ui inverted vertical segment m-padded-tb-massive">
@@ -197,7 +129,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 
-<script>
+<script type="text/javascript">
     // 通过jquery在移动端显示和隐藏导航栏
     $(".menu.toggle").click(function (){
         $(".m-item").toggleClass("m-mobile-hide");
@@ -205,6 +137,26 @@
 
     $('.ui.dropdown')
         .dropdown();
+
+    // identifier指定name
+    $('.ui.form').form({
+        fields:{
+            name:{
+                identifier:'name',
+                rules:[{
+                    type: 'empty',
+                    prompt: '请输入分类名'
+                }]
+            }
+        }
+    });
+
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
 
 </script>
 </body>
