@@ -19,8 +19,8 @@
               <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
               <h2 class="ui teal header item">管理后台</h2>
               <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-              <a href="#" th:href="@{/admin/types}" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-              <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+              <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+              <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
               <div class="right m-mobile-hide menu">
                   <div class="ui dropdown item">
                       <div class="text">
@@ -45,8 +45,8 @@
   <div class="ui attached pointing menu">
       <div class="ui container">
           <div class="right menu">
-              <a href="#" th:href="@{/admin/types/input}" class="active teal item">新增</a>
-              <a href="#" th:href="@{/admin/types}" class="item">列表</a>
+              <a href="#" th:href="@{/admin/tags/input}" class="active teal item">新增</a>
+              <a href="#" th:href="@{/admin/tags}" class="item">列表</a>
           </div>
       </div>
   </div>
@@ -54,14 +54,14 @@
   <!--中间内容，container没法改大小，只能外部改-->
   <div class="m-padded-tb-big m-container-small">
       <div class="ui container">
-          <form action="#" method="post" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}" th:object="${type}" class="ui form">
+          <form action="#" method="post" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" th:object="${tag}" class="ui form">
               <input type="hidden" name="id" th:value="*{id}">
               <div class="field">
                   <!--内部必须定义label和input action将label和input连接-->
                   <div class="ui labeled action input">
-                      <label class="ui compact teal basic label">分类</label>
+                      <label class="ui compact teal basic label">标签</label>
                       <!--fluid使得长度充满-->
-                      <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+                      <input type="text" name="name" placeholder="标签名称" th:value="*{name}">
                   </div>
               </div>
 
@@ -138,14 +138,14 @@
     $('.ui.dropdown')
         .dropdown();
 
-    // identifier指定name
+    identifier指定name
     $('.ui.form').form({
         fields:{
             name:{
                 identifier:'name',
                 rules:[{
                     type: 'empty',
-                    prompt: '请输入分类名'
+                    prompt: '请输入标签名'
                 }]
             }
         }

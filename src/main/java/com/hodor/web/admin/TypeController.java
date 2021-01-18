@@ -65,7 +65,7 @@ public class TypeController {
     }
 
     /**
-     *
+     * 新增分类
      * @param type
      * @param result 可以接收校验后的结果(pojo中注解添加了后端的校验)
      * @param redirectAttributes
