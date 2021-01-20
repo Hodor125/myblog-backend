@@ -62,16 +62,19 @@
                        <input type="text" name="title" placeholder="标题">
                    </div>
                    <div class="field m-margin-tb-tiny">
-                       <div class="ui selection dropdown">
-                           <input type="hidden" name="typeId">
-                           <i class="dropdown icon"></i>
-                           <div class="default text">分类</div>
-                           <div class="menu">
-                               <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
-                               <!--/*-->
-                               <div class="item" data-value="2">开发者手册</div>
-                               <!--*/-->
+                       <div class="ui labeled action input">
+                           <div class="ui selection dropdown">
+                               <input type="hidden" name="typeId">
+                               <i class="dropdown icon"></i>
+                               <div class="default text">分类</div>
+                               <div class="menu">
+                                   <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+                                   <!--/*-->
+                                   <div class="item" data-value="2">开发者手册</div>
+                                   <!--*/-->
+                               </div>
                            </div>
+                           <button id="clear" class="ui button">clear</button>
                        </div>
                    </div>
                    <div class="field">
@@ -93,6 +96,7 @@
                       <th>标题</th>
                       <th>类型</th>
                       <th>推荐</th>
+                      <th>状态</th>
                       <th>更新时间</th>
                       <th>操作</th>
                   </tr></thead>
@@ -102,7 +106,8 @@
                       <td th:text="${blog.title}">RabbitMQ</td>
                       <td th:text="${blog.type.name}">中间件</td>
                       <td th:text="${blog.recommed} ? '是' : '否'">是</td>
-                      <td th:text="${updateTime}">2020-12-29 21：06</td>
+                      <td th:text="${blog.published} ? '发布' : '草稿'">发布</td>
+                      <td th:text="${blog.updateTime}">2020-12-29 21：06</td>
                       <td>
                           <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini basic teal button">编辑</a>
                           <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini basic red button">删除</a>
@@ -110,16 +115,21 @@
                   </tr>
                   </tbody>
                   <tfoot>
-                  <tr><th colspan="6">
+                  <tr><th colspan="7">
                       <!--对item的调整加载menu上才有用-->
                       <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
                           <a onclick="page(this)" th:attr="data-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
                           <a onclick="page(this)" th:attr="data-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
                       </div>
-                      <a href="#" class="ui mini right floated basic teal button">新增</a>
+                      <a href="#" th:href="@{/admin/blogs/input}" class="ui mini right floated basic teal button">新增</a>
                   </th>
                   </tr></tfoot>
               </table>
+              <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                  <i class="close icon"></i>
+                  <div class="header">提示:</div>
+                  <p th:text="${message}">恭喜操作成功</p>
+              </div>
           </div>
       </div>
   </div>
@@ -184,6 +194,7 @@
     }
 
     $("#search-btn").click(function () {
+        $("[name='page']").val(0);
         loadData();
     });
 
@@ -195,6 +206,23 @@
             page : $("[name='page']").val()
         });
     }
+
+    //关闭消息
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+
+    //清除下拉列表
+    $('#clear')
+        .on('click', function() {
+            $('.ui.selection.dropdown')
+                .dropdown('clear')
+            ;
+        })
+    ;
 
 </script>
 </body>

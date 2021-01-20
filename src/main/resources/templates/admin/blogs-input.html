@@ -54,7 +54,9 @@
   <!--中间内容，container没法改大小，只能外部改-->
   <div class="m-padded-tb-big m-container-small">
       <div class="ui container">
-          <form action="#" method="post" class="ui form">
+          <form id="blog-form" action="#" method="post" th:action="@{/admin/blogs}" class="ui form">
+              <!--隐含域区分保存和发布-->
+              <input type="hidden" name="published">
               <!--文章类型和标题-->
               <div class="required field">
                   <!--left的作用是啥-->
@@ -77,59 +79,25 @@
               </div>
 
               <!--文章内容-->
-              <div class="field">
+              <div class="required field">
                   <div id="blog-content" style="z-index: 1 !important;">
-                      <textarea name="blogContent" id="blogContent" style="display:none">
-[TOC]
-
-#### Disabled options
-
-- TeX (Based on KaTeX);
-- Emoji;
-- Task lists;
-- HTML tags decode;
-- Flowchart and Sequence Diagram;
-
-#### Editor.md directory
-
-    editor.md/
-            lib/
-            css/
-            scss/
-            tests/
-            fonts/
-            images/
-            plugins/
-            examples/
-            languages/
-            editormd.js
-            ...
-
-```html
-&lt;!-- English --&gt;
-&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
-
-&lt;!-- 繁體中文 --&gt;
-&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
-```
-                      </textarea>
+                      <textarea name="content" id="blogContent" style="display:none"></textarea>
                   </div>
               </div>
 
               <!--文章分类和标签-->
               <div class="two fields">
-                  <div class="field">
+                  <div class="required field">
                       <!--内部必须定义label和input action将label和input连接-->
                       <div class="ui labeled action input">
                           <label class="ui compact teal basic label">分类</label>
                           <!--fluid使得长度充满-->
                           <div class="ui fluid selection dropdown">
-                              <input type="hidden" name="type">
+                              <input type="hidden" name="type.id">
                               <i class="dropdown icon"></i>
                               <div class="default text">分类</div>
                               <div class="menu">
-                                  <div class="item" data-value="1">错误日志</div>
-                                  <div class="item" data-value="2">开发手册</div>
+                                  <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
                               </div>
                           </div>
                       </div>
@@ -139,12 +107,11 @@
                       <div class="ui labeled action input">
                           <label class="ui compact teal basic label">标签</label>
                           <div class="ui fluid selection multiple search dropdown">
-                              <input type="hidden" name="tag">
+                              <input type="hidden" name="tagIds">
                               <i class="dropdown icon"></i>
                               <div class="default text">标签</div>
                               <div class="menu">
-                                  <div class="item" data-value="1">SSM</div>
-                                  <div class="item" data-value="2">SpringBoot</div>
+                                  <div th:each="tag : ${tags}" class="item" data-value="1" th:data-value="${tag.id}" th:text="${tag.name}">错误日志</div>
                               </div>
                           </div>
                       </div>
@@ -152,10 +119,10 @@
               </div>
 
               <!--首图引用地址-->
-              <div class="field">
+              <div class="required field">
                   <div class="ui labeled input">
                       <label class="ui teal basic label">首图</label>
-                      <input type="text" name="indexPicture" placeholder="首图引用地址">
+                      <input type="text" name="firstPicture" placeholder="首图引用地址">
                   </div>
               </div>
 
@@ -163,20 +130,20 @@
               <div class="inline field">
                   <div class="field">
                       <div class="ui checkbox m-margin-lr-tiny">
-                          <input type="checkbox" id="recommend" name="recommend" class="hidden">
-                          <label for="recommend">推荐&nbsp;&nbsp;</label>
+                          <input type="checkbox" id="recommed" name="recommed" class="hidden">
+                          <label for="recommed">推荐&nbsp;&nbsp;</label>
                       </div>
                       <div class="ui checkbox m-margin-lr-tiny">
-                          <input type="checkbox" id="shareInfo" name="shareInfo" class="hidden">
-                          <label for="shareInfo">转载声明&nbsp;&nbsp;</label>
+                          <input type="checkbox" id="shareStatement" name="shareStatement" class="hidden">
+                          <label for="shareStatement">转载声明&nbsp;&nbsp;</label>
                       </div>
                       <div class="ui checkbox m-margin-lr-tiny">
                           <input type="checkbox" id="appreciation" name="appreciation" class="hidden">
                           <label for="appreciation">赞赏&nbsp;&nbsp;</label>
                       </div>
                       <div class="ui checkbox">
-                          <input type="checkbox" id="comment" name="comment" class="hidden">
-                          <label for="comment">评论&nbsp;&nbsp;</label>
+                          <input type="checkbox" id="commentable" name="commentable" class="hidden">
+                          <label for="commentable">评论&nbsp;&nbsp;</label>
                       </div>
                   </div>
               </div>
@@ -185,8 +152,8 @@
 
               <div class="ui right aligned container">
                   <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
-                  <button class="ui secondary button">保存</button>
-                  <button class="ui teal button">发布</button>
+                  <button type="button" id="save-btn" class="ui secondary button">保存</button>
+                  <button type="button" id="publish-btn" class="ui teal button">发布</button>
               </div>
           </form>
       </div>
@@ -258,6 +225,16 @@
     $('.ui.dropdown')
         .dropdown();
 
+    $("#save-btn").click(function () {
+        $('[name="published"]').val(false);
+        $("#blog-form").submit();
+    });
+
+    $("#publish-btn").click(function () {
+        $('[name="published"]').val(true);
+        $("#blog-form").submit();
+    });
+
     // identifier指定name
     $('.ui.form').form({
         fields:{
@@ -267,7 +244,28 @@
                     type: 'empty',
                     prompt: '标题：请输入博客标题'
                 }]
-            }
+            },
+            content:{
+                identifier:'content',
+                rules:[{
+                    type: 'empty',
+                    prompt: '标题：请输入博客内容'
+                }]
+            },
+            typeId:{
+                identifier:'typeId',
+                rules:[{
+                    type: 'empty',
+                    prompt: '标题：请输入博客分类'
+                }]
+            },
+            firstPicture:{
+                identifier:'firstPicture',
+                rules:[{
+                    type: 'empty',
+                    prompt: '标题：请输入博客首图'
+                }]
+            },
         }
     });
 

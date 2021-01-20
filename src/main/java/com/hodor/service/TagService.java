@@ -5,6 +5,8 @@ import com.hodor.pojo.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * @author ：XXXX
  * @date ：Created in 2021/1/18
@@ -19,6 +21,10 @@ public interface TagService {
     Tag getTagByName(String name);
 
     Page<Tag> listTag(Pageable pageable);
+
+    List<Tag> listTag();
+
+    List<Tag> listTag(String ids);
 
     Tag updateTag(Long id, Tag tag);
 

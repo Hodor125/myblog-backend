@@ -19,6 +19,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,7 +34,6 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
-    @Transactional
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
@@ -45,7 +45,6 @@ public class BlogServiceImpl implements BlogService {
      * @param blog
      * @return
      */
-    @Transactional
     @Override
     public Page<Blog> listBlog(Pageable pageable, BlogQuery blog) {
         return blogRepository.findAll(new Specification<Blog>() {
@@ -78,6 +77,10 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
+        //初始化创建时间和更新时间和浏览次数
+        blog.setCreateTimel(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setView(0);
         return blogRepository.save(blog);
     }
 

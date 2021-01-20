@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 标签service层
  * @author ：hodor007
@@ -30,22 +33,41 @@ public class TagServiceImpl implements TagService {
         return tagRepository.save(tag);
     }
 
-    @Transactional
     @Override
     public Tag getTag(Long id) {
         return tagRepository.getOne(id);
     }
 
-    @Transactional
     @Override
     public Tag getTagByName(String name) {
         return tagRepository.findByName(name);
     }
 
-    @Transactional
     @Override
     public Page<Tag> listTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Tag> listTag() {
+        return tagRepository.findAll();
+    }
+
+    @Override
+    public List<Tag> listTag(String ids) {
+        //传入的字符串 1,2,3
+        return tagRepository.findAllById(convertLong(ids));
+    }
+
+    private List<Long> convertLong(String ids) {
+        List<Long> list = new ArrayList<>();
+        if(ids != null && !"".equals(ids)) {
+            String[] idArray = ids.split(",");
+            for (String s : idArray) {
+                list.add(new Long(s));
+            }
+        }
+        return list;
     }
 
     @Transactional

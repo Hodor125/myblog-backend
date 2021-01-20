@@ -19,6 +19,8 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)    //自动生成
     private Long id;
     private String title;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private String firstPicture;
     private String flag;    //是否原创
@@ -32,6 +34,8 @@ public class Blog {
     private Date createTimel;    //创建事件
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;    //更新事件
+    @Transient    //不会和数据库对应
+    private String tagIds;
 
     //处理表之间的关系
     //博客和类型是多对一，多的一方是关系的维护方
@@ -153,6 +157,14 @@ public class Blog {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
     }
 
     public Type getType() {
