@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author ：hodor007
@@ -39,11 +41,13 @@ public class TagController {
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 8, sort = "id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<Tag> tagPage = tagService.listTag(pageable);
-        int totalPages = tagPage.getTotalPages();
-        int pageNumber = tagPage.getPageable().getPageNumber();
-        model.addAttribute("page", tagPage);
-        model.addAttribute("pageNum", pageNumber);
-        model.addAttribute("totalPage", totalPages);
+        Map map = new HashMap<>();
+        map.put("content", tagPage.getContent());
+        map.put("totalPages", tagPage.getTotalPages());
+        map.put("number", tagPage.getPageable().getPageNumber());
+        map.put("first", tagPage.getPageable().getPageNumber() == 0);
+        map.put("last", tagPage.getPageable().getPageNumber() == tagPage.getTotalPages() - 1);
+        model.addAttribute("page", map);
         return "admin/tags";
     }
 

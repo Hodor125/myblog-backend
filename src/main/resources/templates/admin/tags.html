@@ -78,8 +78,8 @@
               <tr><th colspan="3">
                   <!--对item的调整加载menu上才有用-->
                   <div class="ui mini pagination menu">
-                      <a th:href="@{/admin/tags(page=${pageNum}-1)}" th:if="${pageNum>0}" class="item">上一页</a>
-                      <a th:href="@{/admin/tags(page=${pageNum}+1)}" th:if="${pageNum<totalPage-1}" class="item">下一页</a>
+                      <a th:href="@{/admin/tags(page=${page.number}-1)}" th:unless="${page.first}" class="item">上一页</a>
+                      <a th:href="@{/admin/tags(page=${page.number}+1)}" th:unless="${page.last}" class="item">下一页</a>
                   </div>
                   <a href="#" th:href="@{/admin/tags/input}" class="ui mini right floated basic teal button">新增</a>
               </th>

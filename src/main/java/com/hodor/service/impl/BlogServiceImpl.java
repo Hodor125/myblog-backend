@@ -77,10 +77,17 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
-        //初始化创建时间和更新时间和浏览次数
-        blog.setCreateTimel(new Date());
-        blog.setUpdateTime(new Date());
-        blog.setView(0);
+        if(blog.getId() == null) {
+            //初始化创建时间和更新时间和浏览次数
+            blog.setCreateTimel(new Date());
+            blog.setUpdateTime(new Date());
+            blog.setView(0);
+        } else {
+            Blog old = blogRepository.getOne(blog.getId());
+            blog.setUpdateTime(new Date());
+            blog.setCreateTimel(old.getCreateTimel());
+            blog.setView(old.getView());
+        }
         return blogRepository.save(blog);
     }
 

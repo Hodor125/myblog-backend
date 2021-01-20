@@ -14,6 +14,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -51,8 +52,8 @@ public class BlogController {
         map.put("content", blogPage.getContent());
         map.put("totalPages", blogPage.getTotalPages());
         map.put("number", blogPage.getPageable().getPageNumber());
-        map.put("first", blogPage.getPageable().getPageNumber() > 0);
-        map.put("first", blogPage.getPageable().getPageNumber() < blogPage.getTotalPages() - 1);
+        map.put("first", blogPage.getPageable().getPageNumber() == 0);
+        map.put("last", blogPage.getPageable().getPageNumber() == blogPage.getTotalPages() - 1);
         model.addAttribute("page", blogPage);
         //初始化分类
         model.addAttribute("types", typeService.listType());
@@ -75,7 +76,7 @@ public class BlogController {
         map.put("totalPages", blogPage.getTotalPages());
         map.put("number", blogPage.getPageable().getPageNumber());
         map.put("first", blogPage.getPageable().getPageNumber() > 0);
-        map.put("first", blogPage.getPageable().getPageNumber() < blogPage.getTotalPages() - 1);
+        map.put("last", blogPage.getPageable().getPageNumber() < blogPage.getTotalPages() - 1);
         model.addAttribute("page", blogPage);
         //只刷新blogList区域的内容
         return "admin/blogs :: blogList";
@@ -94,6 +95,26 @@ public class BlogController {
         return INPUT;
     }
 
+    private void setTypeAndTag(Model model) {
+        model.addAttribute("types", typeService.listType());
+        model.addAttribute("tags", tagService.listTag());
+    }
+
+    /**
+     * 编辑博客
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/blogs/{id}/input")
+    public String editInput(@PathVariable Long id, Model model) {
+        setTypeAndTag(model);
+        Blog blog = blogService.getBlog(id);
+        blog.init();
+        model.addAttribute("blog", blog);
+        return INPUT;
+    }
+
     /**
      * 新增博客
      * @param blog
@@ -105,14 +126,23 @@ public class BlogController {
     public String post(Blog blog, RedirectAttributes redirectAttributes, HttpSession session) {
         blog.setUser((User) session.getAttribute("user"));
         blog.setType(typeService.getType(blog.getType().getId()));
+
+        String tagIds = blog.getTagIds();
         blog.setTags(tagService.listTag(blog.getTagIds()));
 
         Blog b = blogService.saveBlog(blog);
         if(b != null) {
-            redirectAttributes.addFlashAttribute("message", "新增成功");
+            redirectAttributes.addFlashAttribute("message", "操作成功");
         } else {
-            redirectAttributes.addFlashAttribute("message", "新增失败");
+            redirectAttributes.addFlashAttribute("message", "操作失败");
         }
+        return REDIRECT_LIST;
+    }
+
+    @GetMapping("/blogs/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        blogService.deleteBlog(id);
+        redirectAttributes.addFlashAttribute("message", "删除成功");
         return REDIRECT_LIST;
     }
 }

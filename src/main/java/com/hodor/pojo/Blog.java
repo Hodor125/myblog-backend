@@ -199,6 +199,28 @@ public class Blog {
         this.comments = comments;
     }
 
+    public void init() {
+        this.tagIds = tagsConvertToIds(tags);
+    }
+
+    private String tagsConvertToIds(List<Tag> tags) {
+        if(!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if(flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagIds;
+        }
+    }
+
     @Override
     public String toString() {
         return "Blog{" +
