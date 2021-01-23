@@ -36,6 +36,7 @@ public class Blog {
     private Date updateTime;    //更新事件
     @Transient    //不会和数据库对应
     private String tagIds;
+    private String description;
 
     //处理表之间的关系
     //博客和类型是多对一，多的一方是关系的维护方
@@ -165,6 +166,14 @@ public class Blog {
 
     public void setTagIds(String tagIds) {
         this.tagIds = tagIds;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Type getType() {

@@ -20,7 +20,7 @@
         <div class="ui inverted secondary stackable menu">
             <!--item加框 m-mobile-hide在@screen中生效，手机端隐藏 m-item只是方便获取-->
             <h2 class="ui teal header item">Blog</h2>
-            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'" th:href="@{/}"><i class="home icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
             <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
@@ -28,11 +28,13 @@
             <!--搜索框-->
             <div class="m-item right item m-mobile-hide">
                 <!--icon添加图标-->
-                <div class="ui icon input inverted transparent">
-                    <input type="text" placeholder="Search...">
-                    <!--link鼠标放上去有手的形状-->
-                    <i class="search link icon"></i>
-                </div>
+                <form name="search" action="#" th:action="@{/search}" target="_blank" method="post">
+                    <div class="ui icon input inverted transparent">
+                        <input type="text" name="query" placeholder="Search..." th:value="${query}">
+                        <!--link鼠标放上去有手的形状-->
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
             </div>
         </div>
         <!--自定义绝对布局 非手机端这个菜单按钮不显示 menu toggle 方便通过class获取这个元素-->

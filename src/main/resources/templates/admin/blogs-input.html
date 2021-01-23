@@ -128,6 +128,10 @@
                   </div>
               </div>
 
+              <div class="required field">
+                  <textarea name="description" th:text="*{description}" placeholder="博客描述" maxlength="200"></textarea>
+              </div>
+
               <!--控制各个功能的开关-->
               <div class="inline field">
                   <div class="field">
@@ -266,6 +270,13 @@
                 rules:[{
                     type: 'empty',
                     prompt: '标题：请输入博客首图'
+                }]
+            },
+            description:{
+                identifier:'description',
+                rules:[{
+                    type: 'empty',
+                    prompt: '标题：请输入博客描述'
                 }]
             },
         }

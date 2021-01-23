@@ -48,12 +48,6 @@ public class BlogController {
     public String blogs(@PageableDefault(size = 3, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model) {
         Page<Blog> blogPage = blogService.listBlog(pageable, blog);
-        Map map = new HashMap<>();
-        map.put("content", blogPage.getContent());
-        map.put("totalPages", blogPage.getTotalPages());
-        map.put("number", blogPage.getPageable().getPageNumber());
-        map.put("first", blogPage.getPageable().getPageNumber() == 0);
-        map.put("last", blogPage.getPageable().getPageNumber() == blogPage.getTotalPages() - 1);
         model.addAttribute("page", blogPage);
         //初始化分类
         model.addAttribute("types", typeService.listType());
@@ -71,12 +65,6 @@ public class BlogController {
     public String search(@PageableDefault(size = 3, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model) {
         Page<Blog> blogPage = blogService.listBlog(pageable, blog);
-        Map map = new HashMap<>();
-        map.put("content", blogPage.getContent());
-        map.put("totalPages", blogPage.getTotalPages());
-        map.put("number", blogPage.getPageable().getPageNumber());
-        map.put("first", blogPage.getPageable().getPageNumber() > 0);
-        map.put("last", blogPage.getPageable().getPageNumber() < blogPage.getTotalPages() - 1);
         model.addAttribute("page", blogPage);
         //只刷新blogList区域的内容
         return "admin/blogs :: blogList";

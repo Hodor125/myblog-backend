@@ -40,13 +40,7 @@ public class TypeController {
     @GetMapping("/types")
     public String types(@PageableDefault(size = 8, sort="id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<Type> typePage = typeService.listType(pageable);
-        HashMap map = new HashMap<>();
-        map.put("content", typePage.getContent());
-        map.put("totalPages", typePage.getTotalPages());
-        map.put("number", typePage.getPageable().getPageNumber());
-        map.put("first", typePage.getPageable().getPageNumber() == 0);
-        map.put("last", typePage.getPageable().getPageNumber() == typePage.getTotalPages() - 1);
-        model.addAttribute("page", map);
+        model.addAttribute("page", typePage);
         return "admin/types";
     }
 

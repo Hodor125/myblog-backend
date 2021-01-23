@@ -5,15 +5,20 @@ import com.hodor.exception.NotFoundException;
 import com.hodor.pojo.Blog;
 import com.hodor.pojo.Type;
 import com.hodor.service.BlogService;
+import com.hodor.util.MarkdownUtils;
+import com.hodor.util.MyBeanUtils;
 import com.hodor.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Transient;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -37,6 +42,24 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
+    }
+
+    /**
+     * 查询博客并且将content格式转为html
+     * @return
+     */
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.getOne(id);
+        if(blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog, b);
+        //处理content的格式
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 
     /**
@@ -74,6 +97,29 @@ public class BlogServiceImpl implements BlogService {
         }, pageable);
     }
 
+    @Override
+    public Page<Blog> listPage(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Blog> listBlogTop(Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "updateTime");
+        Pageable pageable = PageRequest.of(0, size, sort);
+        return blogRepository.findTop(pageable);
+    }
+
+    /**
+     * 根据title和content搜索博客
+     * @param query
+     * @param pageable
+     * @return
+     */
+    @Override
+    public Page<Blog> listBlog(String query, Pageable pageable) {
+        return blogRepository.findByQuery(query, pageable);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
@@ -82,13 +128,17 @@ public class BlogServiceImpl implements BlogService {
             blog.setCreateTimel(new Date());
             blog.setUpdateTime(new Date());
             blog.setView(0);
+            return blogRepository.save(blog);
         } else {
             Blog old = blogRepository.getOne(blog.getId());
-            blog.setUpdateTime(new Date());
-            blog.setCreateTimel(old.getCreateTimel());
-            blog.setView(old.getView());
+            if(blog == null) {
+                throw new NotFoundException("该博客不存在");
+            }
+            //排除空的属性
+            BeanUtils.copyProperties(blog, old, MyBeanUtils.getNullPropertyNames(blog));
+            old.setUpdateTime(new Date());
+            return blogRepository.save(old);
         }
-        return blogRepository.save(blog);
     }
 
     @Transactional
@@ -107,4 +157,11 @@ public class BlogServiceImpl implements BlogService {
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);
     }
+
+    @Transactional
+    @Override
+    public void updateViews(Long id) {
+        blogRepository.updateViews(id);
+    }
+
 }

@@ -8,7 +8,9 @@ import com.hodor.service.TagService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,6 +59,18 @@ public class TagServiceImpl implements TagService {
     public List<Tag> listTag(String ids) {
         //传入的字符串 1,2,3
         return tagRepository.findAllById(convertLong(ids));
+    }
+
+    /**
+     * 查询博客数量靠前的标签
+     * @param size
+     * @return
+     */
+    @Override
+    public List<Tag> listTagTop(Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "blogs.size");
+        Pageable pageable = PageRequest.of(0, size, sort);
+        return tagRepository.findTop(pageable);
     }
 
     private List<Long> convertLong(String ids) {

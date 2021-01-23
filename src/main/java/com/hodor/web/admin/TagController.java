@@ -41,13 +41,7 @@ public class TagController {
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 8, sort = "id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<Tag> tagPage = tagService.listTag(pageable);
-        Map map = new HashMap<>();
-        map.put("content", tagPage.getContent());
-        map.put("totalPages", tagPage.getTotalPages());
-        map.put("number", tagPage.getPageable().getPageNumber());
-        map.put("first", tagPage.getPageable().getPageNumber() == 0);
-        map.put("last", tagPage.getPageable().getPageNumber() == tagPage.getTotalPages() - 1);
-        model.addAttribute("page", map);
+        model.addAttribute("page", tagPage);
         return "admin/tags";
     }
 

@@ -58,7 +58,7 @@
               <div class="header">提示:</div>
               <p th:text="${message}">恭喜操作成功</p>
           </div>
-          <table class="ui table">
+          <table class="ui compact teal table">
               <thead>
               <tr><th></th>
                   <th>名称</th>
@@ -77,7 +77,7 @@
               <tfoot>
               <tr><th colspan="3">
                   <!--对item的调整加载menu上才有用-->
-                  <div class="ui mini pagination menu">
+                  <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
                       <a th:href="@{/admin/tags(page=${page.number}-1)}" th:unless="${page.first}" class="item">上一页</a>
                       <a th:href="@{/admin/tags(page=${page.number}+1)}" th:unless="${page.last}" class="item">下一页</a>
                   </div>
