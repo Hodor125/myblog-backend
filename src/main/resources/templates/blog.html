@@ -349,7 +349,10 @@ h5,h6{font-size:1em;}
                                   <img src="https://picsum.photos/id/1005/120/100" th:src="@{${comment.avatar}}">
                               </a>
                               <div class="content">
-                                  <a class="author" th:text="${comment.nickName}">Matt</a>
+                                  <a class="author">
+                                      <span th:text="${comment.nickName}">Matt</span>
+                                      <div class="ui mini basic teal left pointing label m-padding-mini" th:if="${comment.adminComment}!=null ? ${comment.adminComment} : false">博主</div>
+                                  </a>
                                   <div class="metadata">
                                       <span class="date" th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                                   </div>
@@ -369,7 +372,8 @@ h5,h6{font-size:1em;}
                                       <div class="content">
                                           <a class="author">
                                               <span th:text="${replyComment.nickName}">小白</span>
-                                              <span th:text="|@ ${replyComment.parentComment.nickName}|" class="m-teal">@ 小白</span>
+                                              <div class="ui mini basic teal left pointing label m-padding-mini" th:if="${replyComment.adminComment}!=null ? ${replyComment.adminComment} : false">博主</div>
+                                              <span th:text="|@ ${replyComment.parentComment.nickName}|" class="m-teal">@ 小红</span>
                                           </a>
                                           <div class="metadata">
                                               <span class="date" th:text="${#dates.format(replyComment.createTime, 'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
@@ -454,13 +458,13 @@ h5,h6{font-size:1em;}
                       <div class="field m-mobile-wide m-margin-bottom-small">
                           <div class="ui left icon input">
                               <i class="user icon"></i>
-                              <input type="text" name="nickName" placeholder="姓名">
+                              <input type="text" name="nickName" placeholder="姓名" th:value="${session.user}!=null ? ${session.user.nickName}">
                           </div>
                       </div>
                       <div class="field m-mobile-wide m-margin-bottom-small">
                           <div class="ui left icon input">
                               <i class="mail icon"></i>
-                              <input type="text" name="email" placeholder="邮箱">
+                              <input type="text" name="email" placeholder="邮箱" th:value="${session.user}!=null ? ${session.user.email}">
                           </div>
                       </div>
                       <div class="field m-mobile-wide m-margin-bottom-small">
@@ -670,7 +674,8 @@ h5,h6{font-size:1em;}
             "email" : $("[name='email']").val(),
             "content" : $("[name='content']").val()
         }, function (responseTxt, statusTxt, xhr) {
-            $(window).scrollTo("#comment-container", 500);
+            //评论在最下面，不需要跳到最上面
+            // $(window).scrollTo("#comment-container", 500);
             clearContent();
         });
     }

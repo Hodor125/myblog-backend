@@ -23,6 +23,7 @@ public class Comment {
     private String avatar;    //头像地址
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;    //生成事件
+    private boolean adminComment;    //是否是管理员的评论
 
     @ManyToOne
     private Blog blog;
@@ -83,6 +84,14 @@ public class Comment {
         this.createTime = createTime;
     }
 
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
+
     public Blog getBlog() {
         return blog;
     }
@@ -116,6 +125,10 @@ public class Comment {
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
+                ", adminComment=" + adminComment +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
                 '}';
     }
 }

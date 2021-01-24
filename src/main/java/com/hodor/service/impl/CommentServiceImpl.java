@@ -30,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public List<Comment> listCommentByBlogId(Long blogId) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = new Sort(Sort.Direction.ASC, "createTime");
         //找到顶级的节点并且将各自的所有子评论放入replyComments
         List<Comment> comments = commentRepository.findByBlogIdAndParentCommentNull(blogId, sort);
         return eachComment(comments);

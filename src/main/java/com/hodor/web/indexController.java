@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,6 +57,7 @@ public class indexController {
      * 根据主键的值查询对应的博客
      * @return
      */
+    @Transactional
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id, Model model) {
         model.addAttribute("blog", blogService.getAndConvert(id));

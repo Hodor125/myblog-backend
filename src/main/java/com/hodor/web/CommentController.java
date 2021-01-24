@@ -1,6 +1,7 @@
 package com.hodor.web;
 
 import com.hodor.pojo.Comment;
+import com.hodor.pojo.User;
 import com.hodor.service.BlogService;
 import com.hodor.service.impl.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author ：hodor007
@@ -44,10 +47,17 @@ public class CommentController {
      * @return
      */
     @PostMapping("/comments")
-    public String post(Comment comment) {
+    public String post(Comment comment, HttpSession session) {
         Long blogId = comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blogId));
-        comment.setAvatar(avatar);
+        User user = (User) session.getAttribute("user");
+        if(user != null) {
+            comment.setAvatar(user.getAvatar());
+            comment.setAdminComment(true);
+        } else {
+            comment.setAvatar(avatar);
+            comment.setAdminComment(false);
+        }
         commentService.saveComment(comment);
         return "redirect:/comments/" + comment.getBlog().getId();
     }
