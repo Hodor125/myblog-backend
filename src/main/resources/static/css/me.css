@@ -157,6 +157,10 @@ body {
     color: #333 !important;
 }
 
+.m-teal{
+    color: #00b5ad !important;
+}
+
 /*菜单按钮宽屏的情况下隐藏*/
 .m-mobile-show{
     display: none !important;
