@@ -2,6 +2,7 @@ package com.hodor.service.impl;
 
 import com.hodor.dao.CommentRepository;
 import com.hodor.pojo.Comment;
+import com.hodor.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package com.hodor.service.impl;
+package com.hodor.service;
 
 import com.hodor.pojo.Comment;
 

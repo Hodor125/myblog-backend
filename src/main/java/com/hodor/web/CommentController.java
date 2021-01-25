@@ -3,7 +3,7 @@ package com.hodor.web;
 import com.hodor.pojo.Comment;
 import com.hodor.pojo.User;
 import com.hodor.service.BlogService;
-import com.hodor.service.impl.CommentService;
+import com.hodor.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
