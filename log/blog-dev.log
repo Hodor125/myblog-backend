@@ -3606,3 +3606,237 @@ Caused by: java.lang.NumberFormatException: For input string: "null"
 2021-01-25 16:42:56.912  INFO 14264 --- [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-01-25 16:42:56.918  INFO 14264 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-01-25 16:42:56.926  INFO 14264 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-25 22:30:28.933  INFO 9492 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 9492 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-25 22:30:28.938 DEBUG 9492 --- [restartedMain] com.hodor.BlogApplication                : Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2021-01-25 22:30:28.938  INFO 9492 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: dev
+2021-01-25 22:30:29.091  INFO 9492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-25 22:30:29.091  INFO 9492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-25 22:30:30.505  INFO 9492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-01-25 22:30:30.652  INFO 9492 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136ms. Found 5 repository interfaces.
+2021-01-25 22:30:31.212  INFO 9492 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$135a9e1f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-25 22:30:31.954  INFO 9492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-25 22:30:32.060  INFO 9492 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-25 22:30:32.060  INFO 9492 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2021-01-25 22:30:32.208  INFO 9492 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-25 22:30:32.209  INFO 9492 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3117 ms
+2021-01-25 22:30:32.469  INFO 9492 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-25 22:30:32.471  WARN 9492 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-25 22:30:32.646  INFO 9492 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-25 22:30:32.716  INFO 9492 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-25 22:30:32.804  INFO 9492 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.12.Final}
+2021-01-25 22:30:32.807  INFO 9492 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-25 22:30:33.004  INFO 9492 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-01-25 22:30:33.250  INFO 9492 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-25 22:30:34.576  INFO 9492 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:30:34.677  INFO 9492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-25 22:30:35.218  INFO 9492 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-25 22:30:36.255  INFO 9492 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:30:36.574  WARN 9492 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-25 22:30:36.663  INFO 9492 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-25 22:30:37.174  INFO 9492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-25 22:30:37.179  INFO 9492 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 9.166 seconds (JVM running for 11.727)
+2021-01-25 22:30:43.610  INFO 9492 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:30:43.615  INFO 9492 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:30:43.624  INFO 9492 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-25 22:30:43.637  INFO 9492 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-25 22:31:37.410  INFO 11096 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 11096 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-25 22:31:37.414 DEBUG 11096 --- [restartedMain] com.hodor.BlogApplication                : Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2021-01-25 22:31:37.414  INFO 11096 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: dev
+2021-01-25 22:31:37.483  INFO 11096 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-25 22:31:37.483  INFO 11096 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-25 22:31:38.493  INFO 11096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-01-25 22:31:38.644  INFO 11096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137ms. Found 5 repository interfaces.
+2021-01-25 22:31:39.179  INFO 11096 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$299c4d79] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-25 22:31:39.842  INFO 11096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-25 22:31:39.928  INFO 11096 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-25 22:31:39.929  INFO 11096 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2021-01-25 22:31:40.050  INFO 11096 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-25 22:31:40.051  INFO 11096 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2567 ms
+2021-01-25 22:31:40.279  INFO 11096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-25 22:31:40.280  WARN 11096 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-25 22:31:40.437  INFO 11096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-25 22:31:40.501  INFO 11096 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-25 22:31:40.590  INFO 11096 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.12.Final}
+2021-01-25 22:31:40.592  INFO 11096 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-25 22:31:40.752  INFO 11096 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-01-25 22:31:40.987  INFO 11096 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-25 22:31:42.054  INFO 11096 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:31:42.139  INFO 11096 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-25 22:31:42.577  INFO 11096 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-25 22:31:43.674  INFO 11096 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:31:43.741  WARN 11096 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-25 22:31:43.815  INFO 11096 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-25 22:31:44.257  INFO 11096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-25 22:31:44.260  INFO 11096 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.618 seconds (JVM running for 9.172)
+2021-01-25 22:34:56.314  INFO 11096 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-25 22:34:56.315  INFO 11096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-25 22:34:56.329  INFO 11096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-01-25 22:34:56.385  INFO 11096 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/tags/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TagShowController.tags', args=[Page request [number: 0, size 8, sort: updateTime: DESC], 2, {}]}
+2021-01-25 22:34:56.386  INFO 11096 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:34:56.405  WARN 11096 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-01-25 22:34:56.559  INFO 11096 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:34:56.559  INFO 11096 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : tags
+2021-01-25 22:35:05.724  INFO 11096 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.ArchiveShowController.archives', args=[{}]}
+2021-01-25 22:35:05.724  INFO 11096 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:35:05.771  INFO 11096 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:35:05.772  INFO 11096 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : archives
+2021-01-25 22:36:19.472  INFO 11096 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:36:19.474  INFO 11096 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:36:19.481  INFO 11096 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-25 22:36:19.490  INFO 11096 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-25 22:36:32.142  INFO 15876 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 15876 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-25 22:36:32.145 DEBUG 15876 --- [restartedMain] com.hodor.BlogApplication                : Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2021-01-25 22:36:32.146  INFO 15876 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: dev
+2021-01-25 22:36:32.201  INFO 15876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-25 22:36:32.201  INFO 15876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-25 22:36:33.062  INFO 15876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-01-25 22:36:33.177  INFO 15876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 5 repository interfaces.
+2021-01-25 22:36:33.632  INFO 15876 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e65a1fe9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-25 22:36:34.260  INFO 15876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-25 22:36:34.349  INFO 15876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-25 22:36:34.349  INFO 15876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2021-01-25 22:36:34.476  INFO 15876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-25 22:36:34.477  INFO 15876 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2276 ms
+2021-01-25 22:36:34.691  INFO 15876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-25 22:36:34.693  WARN 15876 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-25 22:36:34.850  INFO 15876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-25 22:36:34.913  INFO 15876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-25 22:36:35.002  INFO 15876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.12.Final}
+2021-01-25 22:36:35.004  INFO 15876 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-25 22:36:35.161  INFO 15876 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-01-25 22:36:35.409  INFO 15876 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-25 22:36:36.579  INFO 15876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:36:36.661  INFO 15876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-25 22:36:37.094  INFO 15876 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-25 22:36:37.929  INFO 15876 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:36:38.225  WARN 15876 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-25 22:36:38.305  INFO 15876 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-25 22:36:38.725  INFO 15876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-25 22:36:38.728  INFO 15876 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.265 seconds (JVM running for 8.62)
+2021-01-25 22:37:41.402  INFO 15876 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-25 22:37:41.403  INFO 15876 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-25 22:37:41.418  INFO 15876 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-01-25 22:37:41.458  INFO 15876 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.ArchiveShowController.archives', args=[{}]}
+2021-01-25 22:37:41.458  INFO 15876 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:37:41.591  INFO 15876 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:37:41.591  INFO 15876 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : archives
+2021-01-25 22:41:17.412  INFO 15876 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:41:17.416  INFO 15876 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:41:17.426  INFO 15876 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-25 22:41:17.433  INFO 15876 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-25 22:42:07.179  INFO 16256 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 16256 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-25 22:42:07.182 DEBUG 16256 --- [restartedMain] com.hodor.BlogApplication                : Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2021-01-25 22:42:07.183  INFO 16256 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: dev
+2021-01-25 22:42:07.255  INFO 16256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-25 22:42:07.256  INFO 16256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-25 22:42:08.237  INFO 16256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-01-25 22:42:08.351  INFO 16256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103ms. Found 5 repository interfaces.
+2021-01-25 22:42:08.852  INFO 16256 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$96577fcc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-25 22:42:09.455  INFO 16256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-25 22:42:09.484  INFO 16256 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-25 22:42:09.485  INFO 16256 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2021-01-25 22:42:09.703  INFO 16256 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-25 22:42:09.703  INFO 16256 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2447 ms
+2021-01-25 22:42:09.919  INFO 16256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-25 22:42:09.920  WARN 16256 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-25 22:42:10.066  INFO 16256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-25 22:42:10.123  INFO 16256 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-25 22:42:10.221  INFO 16256 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.12.Final}
+2021-01-25 22:42:10.223  INFO 16256 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-25 22:42:10.381  INFO 16256 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-01-25 22:42:10.573  INFO 16256 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-25 22:42:11.614  INFO 16256 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:42:11.708  INFO 16256 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-25 22:42:12.175  INFO 16256 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-25 22:42:13.100  INFO 16256 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:42:13.171  WARN 16256 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-25 22:42:13.241  INFO 16256 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-25 22:42:13.971  INFO 16256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-25 22:42:13.975  INFO 16256 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.529 seconds (JVM running for 9.076)
+2021-01-25 22:42:26.969  INFO 16256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-25 22:42:26.969  INFO 16256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-25 22:42:26.988  INFO 16256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2021-01-25 22:42:27.029  INFO 16256 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.ArchiveShowController.archives', args=[{}]}
+2021-01-25 22:42:27.029  INFO 16256 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:42:27.168  INFO 16256 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:42:27.168  INFO 16256 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : archives
+2021-01-25 22:43:58.601  INFO 16256 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:43:58.603  INFO 16256 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:43:58.608  INFO 16256 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-25 22:43:58.614  INFO 16256 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-25 22:44:49.264  INFO 13328 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 13328 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-01-25 22:44:49.267 DEBUG 13328 --- [restartedMain] com.hodor.BlogApplication                : Running with Spring Boot v2.1.9.RELEASE, Spring v5.1.10.RELEASE
+2021-01-25 22:44:49.267  INFO 13328 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: dev
+2021-01-25 22:44:49.321  INFO 13328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-25 22:44:49.321  INFO 13328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-25 22:44:50.208  INFO 13328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-01-25 22:44:50.315  INFO 13328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99ms. Found 5 repository interfaces.
+2021-01-25 22:44:50.769  INFO 13328 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$787da584] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-25 22:44:51.355  INFO 13328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-25 22:44:51.437  INFO 13328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-25 22:44:51.438  INFO 13328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.26]
+2021-01-25 22:44:51.572  INFO 13328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-25 22:44:51.573  INFO 13328 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2252 ms
+2021-01-25 22:44:51.794  INFO 13328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-25 22:44:51.795  WARN 13328 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-01-25 22:44:51.961  INFO 13328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-25 22:44:52.023  INFO 13328 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-25 22:44:52.110  INFO 13328 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.12.Final}
+2021-01-25 22:44:52.113  INFO 13328 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-25 22:44:52.275  INFO 13328 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-01-25 22:44:52.509  INFO 13328 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-25 22:44:53.549  INFO 13328 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:44:53.632  INFO 13328 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-25 22:44:54.061  INFO 13328 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-25 22:44:54.913  INFO 13328 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:44:55.191  WARN 13328 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-25 22:44:55.265  INFO 13328 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-01-25 22:44:55.690  INFO 13328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-25 22:44:55.694  INFO 13328 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.09 seconds (JVM running for 8.503)
+2021-01-25 22:45:06.550  INFO 13328 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-25 22:45:06.551  INFO 13328 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-25 22:45:06.567  INFO 13328 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2021-01-25 22:45:06.606  INFO 13328 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.ArchiveShowController.archives', args=[{}]}
+2021-01-25 22:45:06.606  INFO 13328 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:45:06.746  INFO 13328 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:45:06.747  INFO 13328 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : archives
+2021-01-25 22:45:10.135  INFO 13328 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/15', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[15, {}]}
+2021-01-25 22:45:10.136  INFO 13328 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:45:10.219  INFO 13328 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:45:10.219  INFO 13328 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : blog
+2021-01-25 22:45:10.874  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/15', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[15, {}]}
+2021-01-25 22:45:10.875  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:45:10.918  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:45:10.918  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-01-25 22:51:19.644  INFO 13328 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.ArchiveShowController.archives', args=[{}]}
+2021-01-25 22:51:19.645  INFO 13328 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:51:19.677  INFO 13328 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:51:19.677  INFO 13328 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : archives
+2021-01-25 22:51:22.964  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TagShowController.tags', args=[Page request [number: 0, size 8, sort: updateTime: DESC], -1, {}]}
+2021-01-25 22:51:22.964  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:51:22.974  WARN 13328 --- [http-nio-8080-exec-9] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-01-25 22:51:23.020  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:51:23.020  INFO 13328 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : tags
+2021-01-25 22:51:24.480  INFO 13328 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TypeShowController.types', args=[Page request [number: 0, size 8, sort: updateTime: DESC], -1, {}]}
+2021-01-25 22:51:24.480  INFO 13328 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:51:24.488  WARN 13328 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-01-25 22:51:24.500  INFO 13328 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:51:24.500  INFO 13328 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : result : types
+2021-01-25 22:51:25.685  INFO 13328 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2021-01-25 22:51:25.686  INFO 13328 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-01-25 22:51:25.712  INFO 13328 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-01-25 22:51:25.712  INFO 13328 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : result : index
+2021-01-25 22:58:11.297  INFO 13328 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-25 22:58:11.299  INFO 13328 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-25 22:58:11.305  INFO 13328 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-25 22:58:11.310  INFO 13328 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

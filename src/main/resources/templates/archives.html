@@ -51,49 +51,54 @@
                   </div>
                   <!--靠右，自定义不换行m-inline-block-->
                   <div class="right aligned column">
-                      共<h2 class="ui orange header m-inline-block m-text-thin">14</h2>篇博客
+                      共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}">14</h2>篇博客
                   </div>
               </div>
           </div>
 
-          <h2 class="ui center aligned header">2019</h2>
-          <!--fluid横向填充-->
-          <div class="ui fluid vertical menu">
-              <!--_blank浏览器总在一个新打开、未命名的窗口中载入目标文档-->
-              <a href="#" target="_blank" class="item">
-                  <!--将图标和文字合并,有两个元素就会分开-->
-                  <span>
+          <th:block th:each="item : ${archiveMap}">
+              <h2 class="ui center aligned header" th:text="${item.key}">2019</h2>
+              <!--fluid横向填充-->
+              <div class="ui fluid vertical menu">
+                  <!--_blank浏览器总在一个新打开、未命名的窗口中载入目标文档-->
+                  <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
+                      <!--将图标和文字合并,有两个元素就会分开-->
+                      <span>
+                      <i class="mini teal circle icon"></i>&nbsp;&nbsp;<span th:text="${blog.title}">关于刻意练习的清单</span>
+                      <div class="ui teal basic left pointing label m-padding-mini" th:text="${#dates.format(blog.updateTime, 'MM月dd日')}">九月03</div>
+                      </span>
+                      <div class="ui orange basic left pointing label m-padding-mini">原创</div>
+                  </a>
+                  <!--/*-->
+                  <a href="#" target="_blank" class="item">
+                      <!--将图标和文字合并,有两个元素就会分开-->
+                      <span>
                       <i class="mini teal circle icon"></i>&nbsp;&nbsp;关于刻意练习的清单
                       <div class="ui teal basic left pointing label m-padding-mini">九月03</div>
                   </span>
-                  <div class="ui orange basic left pointing label m-padding-mini">原创</div>
-              </a>
-              <a href="#" target="_blank" class="item">
-                  <!--将图标和文字合并,有两个元素就会分开-->
-                  <span>
+                      <div class="ui orange basic left pointing label m-padding-mini">原创</div>
+                  </a>
+                  <a href="#" target="_blank" class="item">
+                      <!--将图标和文字合并,有两个元素就会分开-->
+                      <span>
                       <i class="mini teal circle icon"></i>&nbsp;&nbsp;关于刻意练习的清单
                       <div class="ui teal basic left pointing label m-padding-mini">九月03</div>
                   </span>
-                  <div class="ui orange basic left pointing label m-padding-mini">原创</div>
-              </a>
-              <a href="#" target="_blank" class="item">
-                  <!--将图标和文字合并,有两个元素就会分开-->
-                  <span>
+                      <div class="ui orange basic left pointing label m-padding-mini">原创</div>
+                  </a>
+                  <a href="#" target="_blank" class="item">
+                      <!--将图标和文字合并,有两个元素就会分开-->
+                      <span>
                       <i class="mini teal circle icon"></i>&nbsp;&nbsp;关于刻意练习的清单
                       <div class="ui teal basic left pointing label m-padding-mini">九月03</div>
                   </span>
-                  <div class="ui orange basic left pointing label m-padding-mini">原创</div>
-              </a>
-              <a href="#" target="_blank" class="item">
-                  <!--将图标和文字合并,有两个元素就会分开-->
-                  <span>
-                      <i class="mini teal circle icon"></i>&nbsp;&nbsp;关于刻意练习的清单
-                      <div class="ui teal basic left pointing label m-padding-mini">九月03</div>
-                  </span>
-                  <div class="ui orange basic left pointing label m-padding-mini">原创</div>
-              </a>
-          </div>
+                      <div class="ui orange basic left pointing label m-padding-mini">原创</div>
+                  </a>
+                  <!--*/-->
+              </div>
+          </th:block>
 
+          <!--/*-->
           <h2 class="ui center aligned header">2020</h2>
           <!--fluid横向填充-->
           <div class="ui fluid vertical menu">
@@ -131,7 +136,7 @@
                   <div class="ui orange basic left pointing label m-padding-mini">原创</div>
               </a>
           </div>
-
+          <!--*/-->
       </div>
   </div>
 

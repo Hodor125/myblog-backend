@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：hodor007
@@ -24,6 +25,12 @@ public interface BlogService {
     Page<Blog> listPage(Pageable pageable);
 
     Page<Blog> listBlog(Long tagId, Pageable pageable);
+
+    //归档博客按年份分类
+    Map<String, List<Blog>> archiveBlog();
+
+    //统计博客数目
+    Long countBlog();
 
     List<Blog> listBlogTop(Integer size);
 
