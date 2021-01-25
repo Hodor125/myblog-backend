@@ -29,7 +29,7 @@ public class TypeShowController {
     private BlogService blogService;
 
     @GetMapping("/types/{id}")
-    public String types(@PageableDefault(size = 8, sort = {"updateTime"},
+    public String types(@PageableDefault(size = 6, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, @PathVariable Long id, Model model) {
         List<Type> types = typeService.listTypeTop(10000);
         //从导航进入的情况

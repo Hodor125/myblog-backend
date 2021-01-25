@@ -35,7 +35,7 @@ public class indexController {
     private TagService tagService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 8, sort = {"updateTime"},
+    public String index(@PageableDefault(size = 6, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, Model model){
         Page<Blog> blogPage = blogService.listPage(pageable);
         model.addAttribute("page", blogPage);
@@ -46,7 +46,7 @@ public class indexController {
     }
 
     @PostMapping("/search")
-    public String search(@PageableDefault(size = 8, sort = {"updateTime"},
+    public String search(@PageableDefault(size = 6, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, @RequestParam String query, Model model) {
         model.addAttribute("page", blogService.listBlog("%" + query + "%", pageable));
         model.addAttribute("query", query);
