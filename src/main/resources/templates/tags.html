@@ -51,16 +51,18 @@
                   </div>
                   <!--靠右，自定义不换行m-inline-block-->
                   <div class="right aligned column">
-                      共<h2 class="ui orange header m-inline-block m-text-thin">14</h2>个
+                      共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(tags)}">14</h2>个
                   </div>
               </div>
           </div>
           <!--所有标签-->
           <div class="ui attached segment m-padded-tb-large">
               <!--detail在a内加其他文字-->
-              <a href="#" target="_blank" class="ui teal basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
+              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny" th:each="tag : ${tags}"
+                 th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'teal'">
+                  <span th:text="${tag.name}">方法论 </span><div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
               </a>
+              <!--/*-->
               <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
                   方法论 <div class="detail">23</div>
               </a>
@@ -88,19 +90,19 @@
               <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
                   方法论 <div class="detail">23</div>
               </a>
+              <!--*/-->
           </div>
           <!--文章列表-->
           <div class="ui top attached teal segment">
               <!--m-padded-lr-responsive动态左右间隔-->
-              <div class="ui vertical segment m-padded-tb-big m-padded-lr-responsive">
+              <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive"  th:each="blog : ${page.content}">
                   <!--stackable mobile移动端显示在上面-->
-                  <div class="ui stackable mobile reversed grid">
+                  <div class="ui middle aligned stackable mobile reversed grid">
                       <div class="eleven wide column">
-                          <h3 class="ui header">2077好玩吗</h3>
-                          <p class="m-text">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
-                          <!--使用布局来做 stackable自适应换行-->
-                          <div class="ui stackable grid">
-                              <!--设置多行-->
+                          <h3 class="ui header"><a href="#" class="m-black" th:text="${blog.title}" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">2077好玩吗</a></h3>
+                          <p class="m-text" th:text="|${blog.description}......|">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
+                          <!--使用布局来做-->
+                          <div class="ui grid">
                               <div class="row">
                                   <!--左边的图标-->
                                   <div class="eleven wide column">
@@ -108,34 +110,35 @@
                                       <div class="ui mini horizontal link list">
                                           <div class="item">
                                               <!--头像-->
-                                              <img src="https://picsum.photos/id/1005/120/100" alt="" class="ui avatar image">
-                                              <div class="content"><a href="#" class="header">Hodor</a></div>
+                                              <img src="https://picsum.photos/id/1005/120/100" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                              <div class="content"><a href="#" class="header" th:text="${blog.user.userName}">Hodor</a></div>
                                           </div>
                                           <div class="item">
-                                              <i class="calendar icon"></i>2017-10-01
+                                              <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2017-10-01</span>
                                           </div>
                                           <div class="item">
-                                              <i class="eye icon"></i>123
+                                              <i class="eye icon"></i> &nbsp;<span th:text="${blog.view}">123</span>
                                           </div>
                                       </div>
                                   </div>
                                   <!--给多一点 right aligned靠右-->
                                   <div class="right aligned five wide column">
                                       <!--m-padding-mini控制大小？-->
-                                      <a href="#" class="ui teal basic label m-padding-tiny m-text-thin">认知升级</a>
+                                      <a href="#" class="ui teal basic label m-padding-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="column">
-                                      <a href="#" class="ui mini basic teal left pointing label">方法论</a>
+                                      <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui basic left pointing label m-padding-mini m-text-thin"
+                                         th:each="tag : ${blog.tags}" th:text="${tag.name}" th:classappend="${tag.id==activeTagId} ? 'teal'">方法论</a>
                                   </div>
                               </div>
                           </div>
                       </div>
                       <!--设置链接打开新网页-->
                       <div class="five wide column">
-                          <a href="#" target="_blank">
-                              <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                          <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                              <img src="https://picsum.photos/id/1005/800/450" alt="" th:src="@{${blog.firstPicture}}" class="ui rounded image">
                           </a>
                       </div>
                   </div>
@@ -143,13 +146,13 @@
           </div>
           <!--分页-->
           <div class="ui bottom attached segment">
-              <div class="ui middle aligned two column grid">
+              <div class="ui middle aligned two column grid" th:if="${page.totalPages}>1">
                   <div class="column">
-                      <a href="#" class="ui teal mini basic button">上一页</a>
+                      <a href="#" class="ui teal mini basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                   </div>
                   <!--靠右，自定义不换行m-inline-block-->
                   <div class="right aligned column">
-                      <a href="#" class="ui teal mini basic button">下一页</a>
+                      <a href="#" class="ui teal mini basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                   </div>
               </div>
           </div>

@@ -1,9 +1,8 @@
 package com.hodor.web;
 
-import com.hodor.pojo.Type;
+import com.hodor.pojo.Tag;
 import com.hodor.service.BlogService;
-import com.hodor.service.TypeService;
-import com.hodor.vo.BlogQuery;
+import com.hodor.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,26 +21,22 @@ import java.util.List;
  * @version: 1.0
  */
 @Controller
-public class TypeShowController {
+public class TagShowController {
     @Autowired
-    private TypeService typeService;
+    private TagService tagService;
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("/types/{id}")
-    public String types(@PageableDefault(size = 8, sort = {"updateTime"},
+    @GetMapping("/tags/{id}")
+    public String tags(@PageableDefault(size = 8, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, @PathVariable Long id, Model model) {
-        List<Type> types = typeService.listTypeTop(10000);
-        //从导航进入的情况
-        if(id == -1){
-            id = types.get(0).getId();
+        List<Tag> tags = tagService.listTagTop(10000);
+        if(id == -1) {
+            id = tags.get(0).getId();
         }
-        BlogQuery blogQuery = new BlogQuery();
-        blogQuery.setTypeId(id);
-        model.addAttribute("types", types);
-        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
-        model.addAttribute("activeTypeId", id);
-        return "types";
+        model.addAttribute("tags", tags);
+        model.addAttribute("activeTagId", id);
+        model.addAttribute("page", blogService.listBlog(id, pageable));
+        return "tags";
     }
-
 }
