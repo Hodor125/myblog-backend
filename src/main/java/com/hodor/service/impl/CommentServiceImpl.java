@@ -59,6 +59,15 @@ public class CommentServiceImpl implements CommentService {
     }
 
     /**
+     * 统计评论总数
+     * @return
+     */
+    @Override
+    public Long countComment() {
+        return Long.valueOf(commentRepository.countComment());
+    }
+
+    /**
      * 循环每个顶级的评论节点
      * @param comments
      * @return

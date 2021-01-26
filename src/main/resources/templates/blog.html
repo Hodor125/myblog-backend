@@ -44,7 +44,7 @@
   </nav>
 
   <!--中间内容，container没法改大小，只能外部改-->
-  <div id="waypoint" class="m-padded-tb-big m-container-small animated fadeIn">
+  <div id="waypoint" class="m-padded-tb-big m-container-small animated fadeIn m-opacity-mini">
       <div class="ui container">
           <!--segment是单独的区域 top表示是顶部的，不会连接上面的-->
 
@@ -524,12 +524,13 @@ h5,h6{font-size:1em;}
                   </div>
               </div>
               <div class="three wide column">
-                  <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-                  <div class="ui inverted link list">
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                  </div>
+                  <h4 class="ui inverted header m-text-thin m-text-spaced">我的博客已运营</h4>
+<!--                  <div class="ui inverted link list">-->
+<!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+<!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+<!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+<!--                  </div>-->
+                  <p id="run_time" class="item m-text-thin"></p>
               </div>
               <div class="three wide column">
                   <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
@@ -697,6 +698,7 @@ h5,h6{font-size:1em;}
         $("[name='parentComment.id']").val(commentId);
         $(window).scrollTo("#comment-form", 500);
     }
+
 </script>
 </body>
 </html>

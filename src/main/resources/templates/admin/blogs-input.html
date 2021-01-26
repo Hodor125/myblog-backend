@@ -11,7 +11,7 @@
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角 m-shadow-small导航栏的阴影效果-->
   <!--快捷键div.ui.menu-->
-  <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+  <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small m-opacity-mini">
       <!--调整位置-->
       <div class="ui container">
           <!--secondary改变样式 stackable可堆叠适应移动端-->
@@ -52,7 +52,7 @@
   </div>
 
   <!--中间内容，container没法改大小，只能外部改-->
-  <div class="m-padded-tb-big m-container-small">
+  <div class="m-padded-tb-big m-container-small m-opacity-mini">
       <div class="ui container">
           <form id="blog-form" action="#" method="post" th:object="${blog}" th:action="@{/admin/blogs}" class="ui form">
               <!--隐含域区分保存和发布-->
@@ -166,7 +166,7 @@
   </div>
 
   <!--底部 segment片段 vertical垂直-->
-  <footer class="ui inverted vertical segment m-padded-tb-massive">
+  <footer class="ui inverted vertical segment m-padded-tb-massive m-opacity-mini">
       <!--所有格子的内容居中-->
       <div class="ui center aligned container">
           <!--格子 grid是分为十六份 bootstrap是分为十二份-->
@@ -182,12 +182,8 @@
                   </div>
               </div>
               <div class="three wide column">
-                  <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-                  <div class="ui inverted link list">
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                      <a href="#" class="item">用户故事(UserStory)</a>
-                  </div>
+                  <h4 class="ui inverted header m-text-thin m-text-spaced">我的博客已运营</h4>
+                  <p id="run_time" class="item m-text-thin"></p>
               </div>
               <div class="three wide column">
                   <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
@@ -287,6 +283,45 @@
         .dropdown({
             allowAdditions: true
         });
+
+    // 运行时间统计
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }
+    function setTime() {
+        /*此处为网站的创建时间*/
+        var create_time = Math.round(new Date(Date.UTC(2021, 00, 11, 15, 15, 15)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime()) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+            + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+            + '秒';
+        $("#run_time")[0].innerHTML = currentTimeHtml;
+    }
+    setInterval(setTime, 1000);
 
 </script>
 </body>

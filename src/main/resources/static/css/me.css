@@ -1,7 +1,13 @@
 /*背景图片*/
 body {
-    background: url("../images/bg.png");
+    background: url("../images/body_bg.jpg");
+    background-attachment:fixed;
+    background-size: 100%;
+    no-repeat: center top;
+    height: 100%;
+    width: 100%;
 }
+
 /*阴影*/
 .m-shadow-small{
     /*适配谷歌等浏览器*/
@@ -122,9 +128,12 @@ body {
 }
 /*设置透明度*/
 .m-opacity-mini{
-    opacity: 0.8 !important;
+    opacity: 0.9 !important;
 }
 .m-opacity-tiny{
+    opacity: 0.7 !important;
+}
+.m-opacity{
     opacity: 0.6 !important;
 }
 
@@ -161,6 +170,9 @@ body {
     color: #00b5ad !important;
 }
 
+.m-orange{
+    color: #f2711c !important;
+}
 /*菜单按钮宽屏的情况下隐藏*/
 .m-mobile-show{
     display: none !important;

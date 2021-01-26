@@ -32,6 +32,9 @@ public interface BlogService {
     //统计博客数目
     Long countBlog();
 
+    //统计博客阅读次数
+    Long countView();
+
     List<Blog> listBlogTop(Integer size);
 
     Page<Blog> listBlog(String query, Pageable pageable);

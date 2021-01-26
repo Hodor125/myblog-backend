@@ -10,7 +10,7 @@
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角-->
   <!--快捷键div.ui.menu-->
-  <nav th:replace="_fragments :: nav(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+  <nav th:replace="_fragments :: nav(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small m-opacity-mini">
       <!--调整位置-->
       <div class="ui container">
           <!--secondary改变样式 stackable可堆叠适应移动端-->
@@ -39,8 +39,9 @@
       </div>
   </nav>
 
+
   <!--中间内容，container没法改大小，只能外部改-->
-  <div class="m-padded-tb-big m-container">
+  <div class="m-padded-tb-big m-container m-opacity-mini">
       <!--container有自适应的功能，最好用它来包裹元素，限制了上下-->
       <div class="ui container">
           <!--header-->
@@ -183,7 +184,7 @@
                   </div>
 
                   <!--二维码-->
-                  <h4 class="ui horizontal divider header m-margin-top-larger">扫码关注我</h4>
+                  <h4 class="ui horizontal divider header m-margin-top-larger">微信</h4>
                   <!--centered居中-->
                   <div class="ui centered card" style="width: 10em">
                       <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image">
@@ -196,7 +197,7 @@
   </div>
 
   <!--底部 segment片段 vertical垂直-->
-  <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+  <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive m-opacity-mini">
       <!--所有格子的内容居中-->
       <div class="ui center aligned container">
           <!--格子 grid是分为十六份 bootstrap是分为十二份-->

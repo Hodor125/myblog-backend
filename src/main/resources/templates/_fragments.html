@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small m-opacity-mini">
     <!--调整位置-->
     <div class="ui container">
         <!--secondary改变样式 stackable可堆叠适应移动端-->
@@ -45,7 +45,7 @@
 </nav>
 
 <!--底部 segment片段 vertical垂直-->
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive m-opacity-mini">
     <!--所有格子的内容居中-->
     <div class="ui center aligned container">
         <!--格子 grid是分为十六份 bootstrap是分为十二份-->
@@ -61,12 +61,13 @@
                 </div>
             </div>
             <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">用户故事(UserStory)</a>
-                    <a href="#" class="item">用户故事(UserStory)</a>
-                    <a href="#" class="item">用户故事(UserStory)</a>
-                </div>
+                <h4 class="ui inverted header m-text-thin m-text-spaced">我的博客已运营</h4>
+                <!--                  <div class="ui inverted link list">-->
+                <!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+                <!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+                <!--                      <a href="#" class="item">用户故事(UserStory)</a>-->
+                <!--                  </div>-->
+                <p id="run_time" class="item m-text-thin"></p>
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
@@ -76,8 +77,14 @@
                 </div>
             </div>
             <div class="seven wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享有关编程、动漫、游戏、思考的相关内容，希望可以给到这儿的人有所帮助</p>
+                <div  id="statistics-container" >
+                    <div th:fragment="statisticList">
+                        <h4 class="ui inverted header m-text-thin m-text-spaced">运营数据</h4>
+                        <p class="m-text-thin m-text-spaced m-opacity-mini">博客数量：<span th:text="${articleNum}" class="m-orange">13</span>&nbsp;篇</p>
+                        <p class="m-text-thin m-text-spaced m-opacity-mini">总评论数：<span th:text="${commentNum}" class="m-orange">13</span>&nbsp;条</p>
+                        <p class="m-text-thin m-text-spaced m-opacity-mini">总阅读量：<span th:text="${viewNum}" class="m-orange">13</span>&nbsp;次</p>
+                    </div>
+                </div>
             </div>
         </div>
         <!--分割线-->
@@ -94,6 +101,51 @@
     <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+    <script>
+        // 运行时间统计
+        function secondToDate(second) {
+            if (!second) {
+                return 0;
+            }
+            var time = new Array(0, 0, 0, 0, 0);
+            if (second >= 365 * 24 * 3600) {
+                time[0] = parseInt(second / (365 * 24 * 3600));
+                second %= 365 * 24 * 3600;
+            }
+            if (second >= 24 * 3600) {
+                time[1] = parseInt(second / (24 * 3600));
+                second %= 24 * 3600;
+            }
+            if (second >= 3600) {
+                time[2] = parseInt(second / 3600);
+                second %= 3600;
+            }
+            if (second >= 60) {
+                time[3] = parseInt(second / 60);
+                second %= 60;
+            }
+            if (second > 0) {
+                time[4] = second;
+            }
+            return time;
+        }
+        function setTime() {
+            /*此处为网站的创建时间*/
+            var create_time = Math.round(new Date(Date.UTC(2021, 00, 11, 15, 15, 15)).getTime() / 1000);
+            var timestamp = Math.round((new Date().getTime()) / 1000);
+            currentTime = secondToDate((timestamp - create_time));
+            currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+            $("#run_time")[0].innerHTML = currentTimeHtml;
+        }
+        setInterval(setTime, 1000);
+
+        //加载运营数据
+        $(function () {
+            $("#statistics-container").load(/*[[@{/statistic}]]*/"/statistic");
+        });
+    </script>
 </th:block>
 
 </body>

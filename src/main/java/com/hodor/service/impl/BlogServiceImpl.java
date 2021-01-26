@@ -137,6 +137,12 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.count();
     }
 
+    //统计博客浏览次数
+    @Override
+    public Long countView() {
+        return Long.valueOf(blogRepository.countView());
+    }
+
     @Override
     public List<Blog> listBlogTop(Integer size) {
         Sort sort = Sort.by(Sort.Direction.DESC, "updateTime");
