@@ -487,7 +487,7 @@ h5,h6{font-size:1em;}
           <!--#id跳转到指定的位置-->
           <a href="#comment-container" class="ui teal button" type="button">留言</a>
           <!--加icon居中？-->
-          <button class="ui wechatBT icon button"><i class="weixin icon"></i></button>
+<!--          <button class="ui wechatBT icon button"><i class="weixin icon"></i></button>-->
           <div id="button-toTop" class="ui icon button"><i class="angle up icon"></i></div>
       </div>
   </div>
@@ -588,23 +588,23 @@ h5,h6{font-size:1em;}
     });
 
     // 弹出二维码
-    $(".wechatBT").popup({
-        popup : $('.wechat-qr.popup'),
-        on : 'click',
-        position : "left center"
-    });
+    // $(".wechatBT").popup({
+    //     popup : $('.wechat-qr.popup'),
+    //     on : 'click',
+    //     position : "left center"
+    // });
 
-    var serurl = "127.0.0.1:8080";
-    var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
+    // var serurl = "127.0.0.1:8080";
+    // var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
     //生成二维码
-    var qrcode = new QRCode("qrcode", {
-        text: serurl+url,
-        width: 110,
-        height: 110,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
+    // var qrcode = new QRCode("qrcode", {
+    //     text: serurl+url,
+    //     width: 110,
+    //     height: 110,
+    //     colorDark : "#000000",
+    //     colorLight : "#ffffff",
+    //     correctLevel : QRCode.CorrectLevel.H
+    // });
 
     //平滑滚动
     $('#button-toTop').click(function () {

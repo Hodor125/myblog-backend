@@ -89,6 +89,15 @@
       </div>
   </div>
 
+  <!--竖直工具按钮组，文章目录和回到最顶部-->
+  <!--外层加上div控制不要紧贴右边-->
+  <div id="toolbar" class="m-padding m-fix m-right-bottom" style="display: none">
+      <!--m-fix m-right-bottom指定绝对位置,浮在最上面-->
+      <div class="ui vertical icon buttons">
+          <div id="button-toTop" class="ui icon button"><i class="angle up icon"></i></div>
+      </div>
+  </div>
+
   <!--底部 segment片段 vertical垂直-->
   <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
       <!--所有格子的内容居中-->
