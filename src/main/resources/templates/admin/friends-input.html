@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
     <link rel="stylesheet" href="../../static/lib/editor-markdown/css/editormd.min.css" th:href="@{/lib/editor-markdown/css/editormd.min.css}">
-    <title>分类新增</title>
+    <title>友链新增</title>
 </head>
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角 m-shadow-small导航栏的阴影效果-->
@@ -20,8 +20,8 @@
               <h2 class="ui teal header item">管理后台</h2>
               <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
               <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-              <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-              <a href="#" th:href="@{/admin/friends}" class="m-item item m-mobile-hide"><i class="address book icon"></i>友链</a>
+              <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+              <a href="#" th:href="@{/admin/friends}" class="active m-item item m-mobile-hide"><i class="address book icon"></i>友链</a>
               <div class="right m-mobile-hide menu">
                   <div class="ui dropdown item">
                       <div class="text">
@@ -46,8 +46,8 @@
   <div class="ui attached pointing menu">
       <div class="ui container">
           <div class="right menu">
-              <a href="#" th:href="@{/admin/tags/input}" class="active teal item">新增</a>
-              <a href="#" th:href="@{/admin/tags}" class="item">列表</a>
+              <a href="#" th:href="@{/admin/friends/input}" class="active teal item">新增</a>
+              <a href="#" th:href="@{/admin/friends}" class="item">列表</a>
           </div>
       </div>
   </div>
@@ -55,14 +55,28 @@
   <!--中间内容，container没法改大小，只能外部改-->
   <div class="m-padded-tb-big m-container-small m-opacity-mini">
       <div class="ui container">
-          <form action="#" method="post" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" th:object="${tag}" class="ui form">
+          <form action="#" method="post" th:action="*{id}==null ? @{/admin/friends} : @{/admin/friends/{id}(id=*{id})}" th:object="${friends}" class="ui form">
               <input type="hidden" name="id" th:value="*{id}">
               <div class="field">
                   <!--内部必须定义label和input action将label和input连接-->
                   <div class="ui labeled action input">
-                      <label class="ui compact teal basic label">标签</label>
+                      <label class="ui compact teal basic label">昵称</label>
                       <!--fluid使得长度充满-->
-                      <input type="text" name="name" placeholder="标签名称" th:value="*{name}">
+                      <input type="text" name="name" placeholder="昵称" th:value="*{name}">
+                  </div>
+                  <br>
+                  <br>
+                  <div class="ui labeled action input">
+                      <label class="ui compact teal basic label">头像</label>
+                      <!--fluid使得长度充满-->
+                      <input type="text" name="avatar" placeholder="头像" th:value="*{avatar}">
+                  </div>
+                  <br>
+                  <br>
+                  <div class="ui labeled action input">
+                      <label class="ui compact teal basic label">链接</label>
+                      <!--fluid使得长度充满-->
+                      <input type="text" name="url" placeholder="昵称" th:value="*{url}">
                   </div>
               </div>
 
@@ -142,9 +156,23 @@
                 identifier:'name',
                 rules:[{
                     type: 'empty',
-                    prompt: '请输入标签名'
+                    prompt: '请输入昵称'
                 }]
-            }
+            },
+            avatar:{
+                identifier:'avatar',
+                rules:[{
+                    type: 'empty',
+                    prompt: '请输入昵称'
+                }]
+            },
+            url:{
+                identifier:'url',
+                rules:[{
+                    type: 'empty',
+                    prompt: '请输入昵称'
+                }]
+            },
         }
     });
 

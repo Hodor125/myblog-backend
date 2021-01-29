@@ -74,9 +74,10 @@
                   </div>
                   <div class="ui bottom attached segment">
                       <!--联系方式-->
-                      <a href="https://github.com/Hodor125" class="ui circular icon button"><i class="github icon"></i></a>
+                      <a href="https://github.com/Hodor125" class="ui github circular icon button" data-content="点击跳转github" data-position="bottom center"><i class="github icon"></i></a>
                       <a href="#" class="ui wechatBT circular icon button"><i class="weixin icon"></i></a>
                       <a href="#" class="ui qq circular icon button" data-content="215338572" data-position="bottom center"><i class="qq icon"></i></a>
+                      <a href="https://blog.csdn.net/qq_41904699?spm=1001.2014.3001.5343" target="_blank" class="ui csdn circular icon button" data-content="点击跳转CSDN" data-position="bottom center"><i class="copyright outline icon"></i></a>
                   </div>
                   <div class="ui wechat-qr flowing popup transition hidden">
                       <div class="image">
@@ -150,6 +151,10 @@
     });
 
     $(".qq").popup();
+
+    $(".csdn").popup();
+
+    $(".github").popup();
 
     $(".wechatBT").popup({
         popup : $('.wechat-qr.popup'),

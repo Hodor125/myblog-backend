@@ -25,7 +25,7 @@ body {
 .m-padding{
     padding: 1em !important;
 }
-.m-padded-tb-mini{
+.m-padded-tb-mini {
     /*一个em是十四个像素 !important提高级别*/
     padding-top: 0.2em !important;
     padding-bottom: 0.2em !important;
@@ -107,6 +107,10 @@ body {
 .m-margin-lr-tiny{
     margin-top: 0.3em !important;
     margin-bottom: 0.3em !important;
+}
+
+.m-margin-tiny{
+    margin: 0.3em !important;
 }
 /*三合一*/
 .m-text{
@@ -198,4 +202,37 @@ body {
     .m-mobile-wide{
         width: 100% !important;
     }
+}
+
+/*友链图片*/
+.friends-link-image{
+    width: 160px;
+    height: 170px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+/*字体*/
+.m-font-size-text-friends{
+    font-size: 16px;
+    color: #000000;
+    font-family: STSong;
+}
+
+/*友链轮廓*/
+.m-friends-outline{
+    width: 160px !important;
+    height: 200px !important;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    /*考虑浏览器兼容性*/
+    -moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+}
+
+.m-friends-outer{
+    display: block;
+    margin: 10px auto 0;
+    position: relative;
+    overflow: hidden;
 }

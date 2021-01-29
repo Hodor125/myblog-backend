@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../static/css/me.css">
-    <title>标签页</title>
+    <title>友链</title>
 </head>
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角 m-shadow-small导航栏的阴影效果-->
@@ -19,9 +19,10 @@
               <h2 class="ui teal header item">Blog</h2>
               <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
               <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-              <a href="#" class="active m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+              <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
               <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
               <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+              <a href="#" class="active m-item item m-mobile-hide"><i class="address book icon"></i>友链</a>
               <!--搜索框-->
               <div class="m-item right item m-mobile-hide">
                   <!--icon添加图标-->
@@ -43,104 +44,116 @@
   <div id="waypoint" class="m-padded-tb-big m-container-small m-opacity-mini">
       <div class="ui container">
           <!--头部-->
-          <div class="ui top attached segment">
+          <div class="ui top attached teal segment">
               <!--直接取两行，middle aligned垂直居中-->
               <div class="ui middle aligned two column grid">
                   <div class="column">
-                      <h3 class="ui teal header">标签</h3>
-                  </div>
-                  <!--靠右，自定义不换行m-inline-block-->
-                  <div class="right aligned column">
-                      共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(tags)}">14</h2>个
+                      <h3 class="ui teal header">友链</h3>
                   </div>
               </div>
           </div>
-          <!--所有标签-->
-          <div class="ui attached segment m-padded-tb-large">
-              <!--detail在a内加其他文字-->
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny" th:each="tag : ${tags}"
-                 th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'teal'">
-                  <span th:text="${tag.name}">方法论 </span><div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
-              </a>
-              <!--/*-->
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <a href="#" target="_blank" class="ui basic left pointing label large m-margin-tb-tiny">
-                  方法论 <div class="detail">23</div>
-              </a>
-              <!--*/-->
-          </div>
-          <!--文章列表-->
-          <div class="ui top attached teal segment">
-              <!--m-padded-lr-responsive动态左右间隔-->
-              <div class="ui padded vertical segment m-padded-tb-big m-padded-lr-responsive"  th:each="blog : ${page.content}">
-                  <!--stackable mobile移动端显示在上面-->
-                  <div class="ui middle aligned stackable mobile reversed grid">
-                      <div class="eleven wide column">
-                          <h3 class="ui header"><a href="#" class="m-black" th:text="${blog.title}" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">2077好玩吗</a></h3>
-                          <p class="m-text" th:text="|${blog.description}......|">《赛博朋克2077》是知名游戏《巫师》系列开发商CD Projekt RED（简称CDPR）开发制作的一款角色扮演游戏。故事设定在黑暗腐败、科技高度发达的未来世界中，并且兼有开放世界元素与RPG机制。</p>
-                          <!--使用布局来做-->
-                          <div class="ui grid">
-                              <div class="row">
-                                  <!--左边的图标-->
-                                  <div class="eleven wide column">
-                                      <!--横向列表 mini整个缩小-->
-                                      <div class="ui mini horizontal link list">
-                                          <div class="item">
-                                              <!--头像-->
-                                              <img src="https://picsum.photos/id/1005/120/100" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
-                                              <div class="content"><a href="#" class="header" th:text="${blog.user.userName}">Hodor</a></div>
-                                          </div>
-                                          <div class="item">
-                                              <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2017-10-01</span>
-                                          </div>
-                                          <div class="item">
-                                              <i class="eye icon"></i> &nbsp;<span th:text="${blog.view}">123</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <!--给多一点 right aligned靠右-->
-                                  <div class="right aligned five wide column">
-                                      <!--m-padding-mini控制大小？-->
-                                      <a href="#" class="ui teal basic label m-padding-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="column">
-                                      <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui basic left pointing label m-padding-mini m-text-thin"
-                                         th:each="tag : ${blog.tags}" th:text="${tag.name}" th:classappend="${tag.id==activeTagId} ? 'teal'">方法论</a>
-                                  </div>
+          <!--友链列表-->
+          <div class="ui attached segment">
+              <div class="ui stackable four column grid m-padding">
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
                               </div>
                           </div>
-                      </div>
-                      <!--设置链接打开新网页-->
-                      <div class="five wide column">
-                          <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
-                              <img src="https://picsum.photos/id/1005/800/450" alt="" th:src="@{${blog.firstPicture}}" class="ui rounded image">
-                          </a>
-                      </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="column">
+                      <a href="#">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
+                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
                   </div>
               </div>
           </div>
