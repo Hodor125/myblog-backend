@@ -10,7 +10,7 @@
 <body>
   <!--导航 ui组件 inverted反转颜色 attached 依附没有圆角 m-shadow-small导航栏的阴影效果-->
   <!--快捷键div.ui.menu-->
-  <nav th:replace="_fragments :: nav(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+  <nav th:replace="_fragments :: nav(6)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
       <!--调整位置-->
       <div class="ui container">
           <!--secondary改变样式 stackable可堆叠适应移动端-->
@@ -55,6 +55,17 @@
           <!--友链列表-->
           <div class="ui attached segment">
               <div class="ui stackable four column grid m-padding">
+                  <div class="column" th:each="friend : ${page.content}">
+                      <a href="#" th:href="@{${friend.url}}" target="_blank">
+                          <div align="center">
+                              <div class="m-friends-outline">
+                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300" th:src="@{${friend.avatar}}">
+                                  <p style="color: black" class="m-font-size-text-friends" th:text="${friend.name}">Hodor</p>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                  <!--/*-->
                   <div class="column">
                       <a href="#">
                           <div align="center">
@@ -145,27 +156,18 @@
                           </div>
                       </a>
                   </div>
-                  <div class="column">
-                      <a href="#">
-                          <div align="center">
-                              <div class="m-friends-outline">
-                                  <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300">
-                                  <p style="color: black" class="m-font-size-text-friends">Hodor</p>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
+                  <!--*/-->
               </div>
           </div>
           <!--分页-->
           <div class="ui bottom attached segment">
               <div class="ui middle aligned two column grid" th:if="${page.totalPages}>1">
                   <div class="column">
-                      <a href="#" class="ui teal mini basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+                      <a href="#" class="ui teal mini basic button" th:href="@{/friends(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                   </div>
                   <!--靠右，自定义不换行m-inline-block-->
                   <div class="right aligned column">
-                      <a href="#" class="ui teal mini basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                      <a href="#" class="ui teal mini basic button" th:href="@{/friends(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                   </div>
               </div>
           </div>
