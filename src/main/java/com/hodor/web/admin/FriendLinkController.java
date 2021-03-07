@@ -34,20 +34,20 @@ public class FriendLinkController {
     public String friends(@PageableDefault(size = 8, sort = "id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<Friends> friendsPage = friendService.listFriend(pageable);
         model.addAttribute("page", friendsPage);
-        return "/admin/friends";
+        return "admin/friends";
     }
 
     @GetMapping("/friends/input")
     public String input(Model model) {
         model.addAttribute("friends", new Friends());
-        return "/admin/friends-input";
+        return "admin/friends-input";
     }
 
     @GetMapping("/friends/{id}/input")
     public String editInput(@PathVariable Long id, Model model) {
         Friends friendsById = friendService.getFriendsById(id);
         model.addAttribute("friends", friendsById);
-        return "/admin/friends-input";
+        return "admin/friends-input";
     }
 
     /**
@@ -60,7 +60,7 @@ public class FriendLinkController {
     @PostMapping("/friends")
     public String post(@Valid Friends friends, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()) {
-            return "/admin/friends-input";
+            return "admin/friends-input";
         }
         Friends f = friendService.saveFriends(friends);
         if(f == null) {
@@ -82,7 +82,7 @@ public class FriendLinkController {
     @PostMapping("/friends/{id}")
     public String editPost(@Valid Friends friends,  BindingResult result, @PathVariable Long id, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()) {
-            return "/admin/friends-input";
+            return "admin/friends-input";
         }
         Friends f = friendService.updateFriends(id, friends);
         if(f == null) {

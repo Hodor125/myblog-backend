@@ -45,6 +45,7 @@ public class indexController {
         return "index";
     }
 
+    //博客搜索
     @PostMapping("/search")
     public String search(@PageableDefault(size = 6, sort = {"updateTime"},
             direction = Sort.Direction.DESC) Pageable pageable, @RequestParam String query, Model model) {
@@ -64,6 +65,4 @@ public class indexController {
         blogService.updateViews(id);
         return "blog";
     }
-
-
 }

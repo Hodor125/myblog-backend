@@ -1,12 +1,474 @@
-2021-01-04 15:57:49.207  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : Starting BlogApplicationTests on LAPTOP-V8RA8F4K with PID 10984 (started by hodor in E:\code\git\myblog-backend)
-2021-01-04 15:57:49.208  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : The following profiles are active: pro
-2021-01-04 15:57:51.040  WARN 10984 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-01-04 15:57:53.634  WARN 10984 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-01-04 15:57:53.874  WARN 10984 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2021-01-04 15:57:54.365  INFO 10984 --- [main] com.hodor.BlogApplicationTests           : Started BlogApplicationTests in 5.842 seconds (JVM running for 6.943)
-2021-01-04 15:57:58.831  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 18328 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
-2021-01-04 15:57:58.849  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
-2021-01-04 15:58:02.122  WARN 18328 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-01-04 15:58:03.404  WARN 18328 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-01-04 15:58:03.503  WARN 18328 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2021-01-04 15:58:03.771  INFO 18328 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 5.902 seconds (JVM running for 6.756)
+2021-03-07 14:43:07.518  INFO 18480 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 18480 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-03-07 14:43:07.525  INFO 18480 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-03-07 14:43:09.890  WARN 18480 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-07 14:43:14.137  WARN 18480 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-07 14:43:14.851  INFO 18480 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.875 seconds (JVM running for 9.15)
+2021-03-07 14:43:39.937  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2021-03-07 14:43:39.937  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:43:43.245  WARN 18480 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-03-07 14:43:43.432  WARN 18480 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-03-07 14:43:45.822  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:43:45.823  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : index
+2021-03-07 14:43:55.660  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:43:55.661  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:43:56.900  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:43:56.900  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:44:12.537  INFO 18480 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/tags/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TagShowController.tags', args=[Page request [number: 0, size 6, sort: updateTime: DESC], 1, {}]}
+2021-03-07 14:44:12.538  INFO 18480 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:14.099  INFO 18480 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:14.100  INFO 18480 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : tags
+2021-03-07 14:44:20.479  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:44:20.480  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:22.148  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:22.149  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:44:25.798  INFO 18480 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[2, {}]}
+2021-03-07 14:44:25.798  INFO 18480 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:26.330  INFO 18480 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:26.330  INFO 18480 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:44:27.605  INFO 18480 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:44:27.605  INFO 18480 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:27.608  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[2, {}]}
+2021-03-07 14:44:27.608  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:28.599  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:28.599  INFO 18480 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:44:29.560  INFO 18480 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:29.561  INFO 18480 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:44:43.580  INFO 18480 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:44:43.581  INFO 18480 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:43.850  INFO 18480 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:43.851  INFO 18480 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:44:45.023  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:44:45.023  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:45.025  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:44:45.025  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:44:45.995  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:45.995  INFO 18480 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:44:46.176  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:44:46.176  INFO 18480 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:45:25.770 ERROR 18480 --- [http-nio-8080-exec-4] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/comments, Exception : {}
+
+java.lang.NullPointerException: null
+	at com.hodor.interceptor.SessionInterceptor.preHandle(SessionInterceptor.java:47)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:45:25.771  WARN 18480 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2021-03-07 14:46:38.985  INFO 14496 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 14496 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-03-07 14:46:38.988  INFO 14496 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-03-07 14:46:41.417  WARN 14496 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-07 14:46:45.659  WARN 14496 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-07 14:46:46.393  INFO 14496 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 7.973 seconds (JVM running for 9.183)
+2021-03-07 14:47:01.425  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:47:01.426  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:01.883  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:01.883  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:47:03.315  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:47:03.316  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:03.317  INFO 14496 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:47:03.318  INFO 14496 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:04.332  INFO 14496 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:04.332  INFO 14496 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:47:04.540  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:04.540  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:47:13.086 ERROR 14496 --- [http-nio-8080-exec-7] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/comments, Exception : {}
+
+java.lang.NullPointerException: null
+	at com.hodor.interceptor.SessionInterceptor.preHandle(SessionInterceptor.java:47)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:47:13.087  WARN 14496 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2021-03-07 14:47:43.828  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:47:43.829  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:44.087  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:44.088  INFO 14496 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:47:45.063  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:47:45.063  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:45.064  INFO 14496 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:47:45.064  INFO 14496 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:47:45.959  INFO 14496 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:45.960  INFO 14496 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:47:46.339  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:47:46.340  INFO 14496 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:48:24.082  INFO 8676 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 8676 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-03-07 14:48:24.085  INFO 8676 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-03-07 14:48:27.021  WARN 8676 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-07 14:48:31.869  WARN 8676 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-07 14:48:32.736  INFO 8676 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 9.428 seconds (JVM running for 11.761)
+2021-03-07 14:48:43.305  INFO 8676 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:48:43.306  INFO 8676 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:48:43.766  INFO 8676 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:48:43.767  INFO 8676 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:48:45.280  INFO 8676 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:48:45.280  INFO 8676 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:48:45.282  INFO 8676 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:48:45.283  INFO 8676 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:48:46.286  INFO 8676 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:48:46.287  INFO 8676 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:48:46.417  INFO 8676 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:48:46.418  INFO 8676 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:49:24.223 ERROR 8676 --- [http-nio-8080-exec-7] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/comments, Exception : {}
+
+java.lang.NullPointerException: null
+	at com.hodor.interceptor.SessionInterceptor.preHandle(SessionInterceptor.java:47)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:49:24.225  WARN 8676 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2021-03-07 14:50:51.003  INFO 13868 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 13868 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-03-07 14:50:51.006  INFO 13868 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-03-07 14:50:53.727  WARN 13868 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-07 14:50:59.164  WARN 13868 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-07 14:51:00.040  INFO 13868 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 9.695 seconds (JVM running for 11.21)
+2021-03-07 14:51:00.463  INFO 13868 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='127.0.0.1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:51:00.464  INFO 13868 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:51:00.999  INFO 13868 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:51:00.999  INFO 13868 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:51:02.688  INFO 13868 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:51:02.688  INFO 13868 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:51:02.691  INFO 13868 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:51:02.691  INFO 13868 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:51:03.653  INFO 13868 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:51:03.653  INFO 13868 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:51:03.917  INFO 13868 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:51:03.917  INFO 13868 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:54:16.161  WARN 13868 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m50s799ms578µs600ns).
+2021-03-07 14:54:16.170 ERROR 13868 --- [http-nio-8080-exec-7] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/comments, Exception : {}
+
+java.lang.NullPointerException: null
+	at com.hodor.interceptor.SessionInterceptor.preHandle(SessionInterceptor.java:46)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:54:16.172  WARN 13868 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2021-03-07 14:54:16.322 ERROR 13868 --- [http-nio-8080-exec-9] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/error, Exception : {}
+
+java.lang.IllegalStateException: EntityManagerFactory is closed
+	at org.hibernate.internal.SessionFactoryImpl.validateNotClosed(SessionFactoryImpl.java:531)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:613)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:154)
+	at sun.reflect.GeneratedMethodAccessor65.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:497)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:680)
+	at com.sun.proxy.$Proxy103.createEntityManager(Unknown Source)
+	at org.springframework.orm.jpa.EntityManagerFactoryAccessor.createEntityManager(EntityManagerFactoryAccessor.java:171)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor.preHandle(OpenEntityManagerInViewInterceptor.java:88)
+	at org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter.preHandle(WebRequestHandlerInterceptorAdapter.java:57)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:54:16.322 ERROR 13868 --- [http-nio-8080-exec-1] c.h.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/error, Exception : {}
+
+java.lang.IllegalStateException: EntityManagerFactory is closed
+	at org.hibernate.internal.SessionFactoryImpl.validateNotClosed(SessionFactoryImpl.java:531)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:613)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:154)
+	at sun.reflect.GeneratedMethodAccessor65.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:497)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:680)
+	at com.sun.proxy.$Proxy103.createEntityManager(Unknown Source)
+	at org.springframework.orm.jpa.EntityManagerFactoryAccessor.createEntityManager(EntityManagerFactoryAccessor.java:171)
+	at org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor.preHandle(OpenEntityManagerInViewInterceptor.java:88)
+	at org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter.preHandle(WebRequestHandlerInterceptorAdapter.java:57)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:137)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1035)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-03-07 14:54:16.323  WARN 13868 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalStateException: EntityManagerFactory is closed]
+2021-03-07 14:54:16.323  WARN 13868 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalStateException: EntityManagerFactory is closed]
+2021-03-07 14:59:08.020  INFO 3592 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 3592 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-03-07 14:59:08.022  INFO 3592 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-03-07 14:59:10.801  WARN 3592 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-03-07 14:59:15.538  WARN 3592 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-07 14:59:16.398  INFO 3592 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 9.059 seconds (JVM running for 11.003)
+2021-03-07 14:59:29.298  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[1, {}]}
+2021-03-07 14:59:29.299  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:29.780  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:29.780  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : blog
+2021-03-07 14:59:31.405  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-03-07 14:59:31.405  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:31.407  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:59:31.408  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:32.403  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:32.403  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:59:32.581  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:32.581  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-03-07 14:59:43.069  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 14:59:43.070  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:44.440  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:44.440  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 14:59:44.461  INFO 3592 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1;jsessionid=65FDF181966EFD9967881A6D05359B85', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:59:44.461  INFO 3592 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:45.332  INFO 3592 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:45.332  INFO 3592 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 14:59:54.852  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 14:59:54.852  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:56.170  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:56.170  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 14:59:56.178  INFO 3592 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 14:59:56.178  INFO 3592 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 14:59:57.170  INFO 3592 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 14:59:57.171  INFO 3592 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 15:00:00.771  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 15:00:00.772  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:02.030  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:02.030  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 15:00:02.038  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 15:00:02.038  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:03.331  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:03.332  INFO 3592 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 15:00:06.092  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 15:00:06.092  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:07.344  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:07.344  INFO 3592 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 15:00:07.350  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 15:00:07.351  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:08.700  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:08.701  INFO 3592 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 15:00:12.290  INFO 3592 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 15:00:12.291  INFO 3592 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:13.630  INFO 3592 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:13.631  INFO 3592 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 15:00:13.637  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 15:00:13.637  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:15.071  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:15.071  INFO 3592 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-03-07 15:00:18.871  INFO 3592 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.post', args=[Comment{id=null, nickName='小白', email='215338572@qq.com', content='111', avatar='null', createTime=null, adminComment=false, blog=Blog{id=1, title='null', content='null', firstPicture='null', flag='null', view=null, appreciation=false, shareStatement=false, commentable=false, published=false, recommed=false, createTimel=null, updateTime=null}, replyComments=[], parentComment=Comment{id=-1, nickName='null', email='null', content='null', avatar='null', createTime=null, adminComment=false, blog=null, replyComments=[], parentComment=null}}, org.apache.catalina.session.StandardSessionFacade@157f5cba]}
+2021-03-07 15:00:18.871  INFO 3592 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:20.171  INFO 3592 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:20.171  INFO 3592 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : result : redirect:/comments/1
+2021-03-07 15:00:20.177  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[1, {}]}
+2021-03-07 15:00:20.177  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-03-07 15:00:21.752  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-03-07 15:00:21.752  INFO 3592 --- [http-nio-8080-exec-2] com.hodor.aspect.LogAspect               : result : blog :: commentList

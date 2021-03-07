@@ -21,6 +21,7 @@ public class StatisticsShowController {
     @Autowired
     private CommentService commentService;
 
+    //可以放在th_fragments中
     @GetMapping("/statistic")
     public String statistic(Model model) {
         Long countBlog = blogService.countBlog();

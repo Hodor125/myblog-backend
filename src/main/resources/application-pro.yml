@@ -1,14 +1,25 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3305/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&AutoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&AutoReconnect=true
     username: root
-    password: ahulml005
+    password: 123
   jpa:
     hibernate:
       #修改实体类会更新表结构
       ddl-auto: none
     show-sql: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
 
 #日志级别
 logging:
@@ -20,4 +31,4 @@ logging:
   file: log/blog-pro.log
 
 server:
-  port: 80
+  port: 8080

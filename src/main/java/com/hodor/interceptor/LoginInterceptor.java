@@ -1,5 +1,6 @@
 package com.hodor.interceptor;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @description ：
  * @version: 1.0
  */
-
+@Component
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     //请求到达前进行拦截
     @Override

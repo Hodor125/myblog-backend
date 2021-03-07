@@ -56,7 +56,7 @@
           <div class="ui attached segment">
               <div class="ui stackable four column grid m-padding">
                   <div class="column" th:each="friend : ${page.content}">
-                      <a href="#" th:href="@{${friend.url}}" target="_blank">
+                      <a href="#" th:href="@{${friend.url}}" target="_blank"              >
                           <div align="center">
                               <div class="m-friends-outline">
                                   <img class="friends-link-image image" src="https://picsum.photos/id/1003/200/300" th:src="@{${friend.avatar}}">

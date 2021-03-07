@@ -1,0 +1,83 @@
+2021-02-27 18:59:02.482  INFO 3248 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 3248 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-02-27 18:59:02.489  INFO 3248 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-02-27 18:59:04.610  WARN 3248 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-27 18:59:08.101  WARN 3248 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-27 18:59:08.833  INFO 3248 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 6.86 seconds (JVM running for 7.877)
+2021-02-27 18:59:41.832  INFO 3248 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2021-02-27 18:59:41.833  INFO 3248 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 18:59:44.600  WARN 3248 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-27 18:59:44.719  WARN 3248 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-27 18:59:46.179  INFO 3248 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 18:59:46.179  INFO 3248 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : index
+2021-02-27 18:59:53.310  INFO 3248 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 18:59:53.310  INFO 3248 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 18:59:54.352  INFO 3248 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 18:59:54.353  INFO 3248 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:10:08.700  INFO 18384 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 18384 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-02-27 19:10:08.703  INFO 18384 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-02-27 19:10:10.643  WARN 18384 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-27 19:10:14.039  WARN 18384 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-27 19:10:14.718  INFO 18384 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 6.436 seconds (JVM running for 7.423)
+2021-02-27 19:29:00.917  INFO 728 --- [restartedMain] com.hodor.BlogApplication                : Starting BlogApplication on LAPTOP-V8RA8F4K with PID 728 (E:\code\git\myblog-backend\target\classes started by hodor in E:\code\git\myblog-backend)
+2021-02-27 19:29:00.920  INFO 728 --- [restartedMain] com.hodor.BlogApplication                : The following profiles are active: pro
+2021-02-27 19:29:02.816  WARN 728 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-27 19:29:06.236  WARN 728 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-27 19:29:06.896  INFO 728 --- [restartedMain] com.hodor.BlogApplication                : Started BlogApplication in 6.409 seconds (JVM running for 7.372)
+2021-02-27 19:29:21.820  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2021-02-27 19:29:21.821  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:29:24.885  WARN 728 --- [http-nio-8080-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-27 19:29:25.021  WARN 728 --- [http-nio-8080-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-27 19:29:26.943  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:29:26.943  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : index
+2021-02-27 19:29:33.622  INFO 728 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:29:33.623  INFO 728 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:29:34.674  INFO 728 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:29:34.674  INFO 728 --- [http-nio-8080-exec-10] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:29:47.608  INFO 728 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TypeShowController.types', args=[Page request [number: 0, size 6, sort: updateTime: DESC], 2, {}]}
+2021-02-27 19:29:47.608  INFO 728 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:29:48.889  INFO 728 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:29:48.889  INFO 728 --- [http-nio-8080-exec-1] com.hodor.aspect.LogAspect               : result : types
+2021-02-27 19:29:52.171  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:29:52.171  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:29:53.237  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:29:53.238  INFO 728 --- [http-nio-8080-exec-5] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:30:24.012  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/types/7', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TypeShowController.types', args=[Page request [number: 0, size 6, sort: updateTime: DESC], 7, {}]}
+2021-02-27 19:30:24.012  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:30:26.354  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:30:26.354  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : result : types
+2021-02-27 19:30:29.426  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:30:29.426  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:30:30.368  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:30:30.368  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:31:05.786  INFO 728 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.TypeShowController.types', args=[Page request [number: 0, size 6, sort: updateTime: DESC], 2, {}]}
+2021-02-27 19:31:05.787  INFO 728 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:31:06.953  INFO 728 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:31:06.953  INFO 728 --- [http-nio-8080-exec-8] com.hodor.aspect.LogAspect               : result : types
+2021-02-27 19:31:10.050  INFO 728 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:31:10.050  INFO 728 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:31:11.128  INFO 728 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:31:11.129  INFO 728 --- [http-nio-8080-exec-4] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:31:12.373  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.blog', args=[3, {}]}
+2021-02-27 19:31:12.373  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:31:12.692  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:31:12.693  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : blog
+2021-02-27 19:31:13.654  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:31:13.654  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:31:13.656  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/comments/3', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.CommentController.comments', args=[3, {}]}
+2021-02-27 19:31:13.657  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:31:13.925  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:31:13.926  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : blog :: commentList
+2021-02-27 19:31:14.773  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:31:14.773  INFO 728 --- [http-nio-8080-exec-7] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList
+2021-02-27 19:34:33.640  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2021-02-27 19:34:33.640  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:34:38.612  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:34:38.612  INFO 728 --- [http-nio-8080-exec-6] com.hodor.aspect.LogAspect               : result : index
+2021-02-27 19:34:43.379  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.indexController.index', args=[Page request [number: 1, size 6, sort: updateTime: DESC], {}]}
+2021-02-27 19:34:43.379  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:34:49.328  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:34:49.328  INFO 728 --- [http-nio-8080-exec-9] com.hodor.aspect.LogAspect               : result : index
+2021-02-27 19:34:56.065  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : request : Requesting{url='http://localhost:8080/statistic', ip='0:0:0:0:0:0:0:1', classMethod='com.hodor.web.StatisticsShowController.statistic', args=[{}]}
+2021-02-27 19:34:56.065  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : --------doBefore--------
+2021-02-27 19:34:57.113  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : ----------doAfter-----------
+2021-02-27 19:34:57.113  INFO 728 --- [http-nio-8080-exec-3] com.hodor.aspect.LogAspect               : result : _fragments :: statisticList

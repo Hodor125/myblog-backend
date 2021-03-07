@@ -1,5 +1,6 @@
 package com.hodor.web;
 
+import com.hodor.annotation.AccessLimit;
 import com.hodor.pojo.Comment;
 import com.hodor.pojo.User;
 import com.hodor.service.BlogService;
@@ -46,6 +47,7 @@ public class CommentController {
      * @param comment
      * @return
      */
+    @AccessLimit(seconds = 15, maxCount = 2)
     @PostMapping("/comments")
     public String post(Comment comment, HttpSession session) {
         Long blogId = comment.getBlog().getId();
